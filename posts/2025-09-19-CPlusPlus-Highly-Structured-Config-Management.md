@@ -220,7 +220,7 @@ Example code and configuration: [WEBcodeX1/http-1.2](https://github.com/WEBcodeX
 
 ### 4.2. x0 JavaScript Framework
 
-A JavaScript framework using true OOP and modern object modeling: [WEBcodeX1/x0](https://github.com/WEBcodeX1/x0)
+A JavaScript framework using true OOP and the *Declarative Programming Design Pattern*: [WEBcodeX1/x0](https://github.com/WEBcodeX1/x0)
 
 ---
 
