@@ -1,3 +1,14 @@
+---
+category: programming
+tags: [cplusplus, json, config, configuration, STL, english]
+---
+
+# Post Meta-Data
+
+| Date       | Language                 | Author                            | Description                                   |
+|------------|--------------------------|-----------------------------------|-----------------------------------------------|
+| 19.09.2025 | English                  | Prüfer, Claus (Chief-Prüfer)      | C++ Highly Structured Configuration Managment |
+
 # C++ Highly Structured Configuration Management Using JSON
 
 This little tutorial gives deep insights about howto use Nlohmann::JSON library efficiently
