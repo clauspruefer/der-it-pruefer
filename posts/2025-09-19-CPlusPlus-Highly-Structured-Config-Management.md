@@ -212,6 +212,15 @@ for (const auto& nsItem : jsonData["namespaces"]) {
 
 With Nlohmann::JSON, you model your configuration as clean, native C++ data structures, taking full advantage of STL features like `std::swap`, `std::move`, and modern iteration.
 
+```cpp
+auto ObjInstance1 = new MyObject1(std::move(jsonData["confgroup1"][0]);
+auto ObjInstance2 = new MyObject2(std::move(jsonData["confgroup1"][1]);
+}
+```
+
+> ![EmojiBulb](/emoji_bulb_16x16.png)
+> Save class instance members by directly std::moving hierarchical json structures.
+
 ---
 
 ## External References
