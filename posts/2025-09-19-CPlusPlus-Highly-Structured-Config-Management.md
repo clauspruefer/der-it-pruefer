@@ -87,7 +87,8 @@ Sample config excerpt ([full file](https://github.com/WEBcodeX1/http-1.2/blob/ma
 }
 ```
 
-For large configs, consider splitting into multiple files for maintainability.
+> ![EmojiBulb](/emoji_bulb_16x16.png)
+> For large configs, consider splitting into multiple files for maintainability.
 
 ### Global Access Example
 
@@ -204,7 +205,8 @@ for (const auto& nsItem : jsonData["namespaces"]) {
 }
 ```
 
-You can also move directly into any STL container supporting move semantics.
+> ![EmojiBulb](/emoji_bulb_16x16.png)
+> You can also move directly into any STL container supporting move semantics.
 
 ### Direct Data Modeling
 
