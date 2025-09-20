@@ -17,56 +17,56 @@ Project repository: [nlohmann/json](https://github.com/nlohmann/json)
 
 ---
 
-## 1. Preface
+## Preface
 
 Configuration management has been a pivotal topic for decades. Numerous approaches—each with their own strengths and weaknesses—have evolved over time.
 
-### 1.1. Commonly Used Formats
+### Commonly Used Formats
 
 - Grouped Key/Value Pairs
 - OS Registry
 - XML
 - JSON *(now a first-class citizen in config management)*
 
-### 1.2. The Rise of JSON
+### The Rise of JSON
 
 JSON (JavaScript Object Notation) originated as part of dynamic web content in JavaScript, offering a concise and hierarchical way to define object metadata. Its seamless integration with APIs and native parsing support helped it become a widely adopted data format and a new *design pattern*.
 
-### 1.3. Python’s Native JSON Adoption
+### Python’s Native JSON Adoption
 
 Python was among the first languages to embrace JSON natively. With Python’s built-in support and features like `yield`, developers gain powerful tools for building rich, dynamic data models.
 
 ---
 
-## 2. JSON in Modern C++
+## JSON in Modern C++
 
 C++ is inherently suited for generic programming. However, many C++ JSON libraries neglect this paradigm, resulting in convoluted APIs.
 
-### 2.1. Enter Nlohmann::JSON
+### Enter Nlohmann::JSON
 
 Thanks to Niels Lohmann (Berlin), C++ developers can now work with JSON in an intuitive, STL-like manner. The library’s hierarchical access and clean object modeling unlock powerful design patterns and minimize boilerplate.
 
 Other C++ JSON libraries rarely match this elegance and usability.
 
-### 2.2. Declarative Programming
+### Declarative Programming
 
 Declarative programming—popular in systems like Kubernetes (Go)—fits naturally with JSON. While Go’s OOP model is limited, languages like JavaScript, Python, and C++ (with Nlohmann::JSON) support declarative configuration beautifully.
 
-### 2.3. Embracing Generic Containers
+### Embracing Generic Containers
 
 With Nlohmann::JSON, base STL containers (`std::vector`, `std::map`) are used for JSON arrays and objects. Features like `std::swap` and `std::move` (C++11+) are transparently supported, enabling efficient memory management and modern iteration syntax.
 
-### 2.4. Why Not XML?
+### Why Not XML?
 
 While XML offers features like DTDs, its verbosity and complex parsing routines often outweigh its benefits—especially in embedded systems and performance-critical applications. Many XML libraries are C-style and lack the ergonomic STL-like access that Nlohmann::JSON provides.
 
 ---
 
-## 3. Implementation Examples
+## Implementation Examples
 
 Let’s move from theory to practice. Below are actionable examples showcasing Nlohmann::JSON’s strengths, inspired by [WEBcodeX1/http-1.2](https://github.com/WEBcodeX1/http-1.2).
 
-### 3.1. Sample JSON Configuration
+### Sample JSON Configuration
 
 Sample config excerpt ([full file](https://github.com/WEBcodeX1/http-1.2/blob/main/config/config.json)):
 
@@ -89,7 +89,7 @@ Sample config excerpt ([full file](https://github.com/WEBcodeX1/http-1.2/blob/ma
 
 For large configs, consider splitting into multiple files for maintainability.
 
-### 3.2. Global Access Example
+### Global Access Example
 
 Direct global access leverages intuitive, chainable syntax:
 
@@ -115,7 +115,7 @@ catch (const std::exception& e) {
 }
 ```
 
-### 3.3. Hierarchical Access
+### Hierarchical Access
 
 Minimize value copies and programming mistakes with direct, type-safe access:
 
@@ -124,7 +124,7 @@ const auto& serverAddr = jsonData["server"]["connection"]["ipv4"]["address"];
 const auto& serverPort = jsonData["server"]["connection"]["ipv4"]["port"];
 ```
 
-### 3.4. Processing Lists in JSON
+### Processing Lists in JSON
 
 Example config with a list of namespaces:
 
@@ -162,7 +162,7 @@ Example config with a list of namespaces:
 }
 ```
 
-### 3.5. Iterating Over JSON Lists in C++
+### Iterating Over JSON Lists in C++
 
 Modern for-each loops make iterating clean and efficient:
 
@@ -172,7 +172,7 @@ for (const auto& nsItem : jsonData["namespaces"]) {
 }
 ```
 
-### 3.6. Accessing Nested Properties
+### Accessing Nested Properties
 
 Access sub-object properties with ease:
 
@@ -183,7 +183,7 @@ for (const auto& nsItem : jsonData["namespaces"]) {
 }
 ```
 
-### 3.7. STL Move Semantics for JSON Objects
+### STL Move Semantics for JSON Objects
 
 Efficiently move JSON objects into containers to save memory:
 
@@ -206,19 +206,19 @@ for (const auto& nsItem : jsonData["namespaces"]) {
 
 You can also move directly into any STL container supporting move semantics.
 
-### 3.8. Direct Data Modeling
+### Direct Data Modeling
 
 With Nlohmann::JSON, you model your configuration as clean, native C++ data structures, taking full advantage of STL features like `std::swap`, `std::move`, and modern iteration.
 
 ---
 
-## 4. External References
+## External References
 
-### 4.1. Falcon AS (http/1.2)
+### Falcon AS (http/1.2)
 
 Example code and configuration: [WEBcodeX1/http-1.2](https://github.com/WEBcodeX1/http-1.2)
 
-### 4.2. x0 JavaScript Framework
+### x0 JavaScript Framework
 
 A JavaScript framework using true OOP and the *Declarative Programming Design Pattern*: [WEBcodeX1/x0](https://github.com/WEBcodeX1/x0)
 
