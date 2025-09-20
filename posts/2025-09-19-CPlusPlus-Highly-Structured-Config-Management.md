@@ -68,7 +68,7 @@ Let’s move from theory to practice. Below are actionable examples showcasing N
 
 ### Sample JSON Configuration
 
-Sample config excerpt ([full file](https://github.com/WEBcodeX1/http-1.2/blob/main/config/config.json)):
+Sample config excerpt ([full file](https://github.com/WEBcodeX1/http-1.2/blob/04ef60f597e5c5e1317c2efc1120e6976cbc86cb/config/config.json)):
 
 ```json
 {
