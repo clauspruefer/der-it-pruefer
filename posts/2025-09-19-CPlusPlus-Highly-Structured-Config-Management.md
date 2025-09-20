@@ -217,7 +217,7 @@ With Nlohmann::JSON, you model your configuration as clean, native C++ data stru
 std::unique_ptr<MyObject1> objInstance1;
 std::unique_ptr<MyObject2> objInstance2;
 
-// think about passing as immutable (const)
+// think about defining config class member immutable (const)
 objInstance1 = new MyObject1(std::move(jsonData["confgroup1"][0]);
 objInstance2 = new MyObject2(std::move(jsonData["confgroup1"][1]);
 ```
