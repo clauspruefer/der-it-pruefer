@@ -215,7 +215,6 @@ With Nlohmann::JSON, you model your configuration as clean, native C++ data stru
 ```cpp
 auto ObjInstance1 = new MyObject1(std::move(jsonData["confgroup1"][0]);
 auto ObjInstance2 = new MyObject2(std::move(jsonData["confgroup1"][1]);
-}
 ```
 
 > ![EmojiBulb](/emoji_bulb_16x16.png)
