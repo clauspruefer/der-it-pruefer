@@ -5,42 +5,36 @@ tags: [python, oop, object-oriented, programming, abstract, abstract-classes, ab
 
 # Post Meta-Data
 
-| Date       | Language                 | Author                            | Description                              |
-|------------|--------------------------|-----------------------------------|------------------------------------------|
-| 02.02.2025 | English                  | Prüfer, Claus (Chief-Prüfer)      | Python Abstract-ClassMethods Demystified |
+| Date       | Language | Author                         | Description                                    |
+|------------|----------|--------------------------------|------------------------------------------------|
+| 02.02.2025 | English  | Claus Prüfer (Chief Prüfer)    | Python Abstract Class Methods Demystified      |
 
 # Preface
 
-Recently i added **Pylint** ([https://pylint.org](https://pylint.org)) as Python linter
-into my [python-micro-esb](https://github.com/clauspruefer/python-micro-esb) project on GitHub.
+Recently, I added **Pylint** ([https://pylint.org](https://pylint.org)) as a Python linter to my [python-micro-esb](https://github.com/clauspruefer/python-micro-esb) project on GitHub.
 
-Primarily i am using KDevelops internal linting mechanism (*kdevelop-python* extension)
-which tends to be quite precise in language syntax mismatch detection.
+Primarily, I use KDevelop’s internal linting mechanism (*kdevelop-python* extension), which is quite precise in detecting language syntax mismatches.
 
-The fact that **Pylint** is the most popular and out of the box GitHub Python linter
-for *GitHub Actions* made me think: "why not give it a try"? - Star Your Code!
+Given that **Pylint** is the most popular out-of-the-box Python linter for *GitHub Actions*, I thought: “Why not give it a try?” Star your code!
 
 # Example Download URL
 
-Example Python scripts referenced in this post can be downloaded from: 
+Example Python scripts referenced in this post can be downloaded from:
 [https://download.webcodex.de/der-it-pruefer/python-abstract-class-methods](https://download.webcodex.de/der-it-pruefer/python-abstract-class-methods).
 
 # Basics
 
 ## Abstract Classes
 
-The purpose of *Abstract Classes* in general is to provide a mechanism to force a
-different implementation (overloading) of class methods in derived *Child Classes*.
+The purpose of *Abstract Classes* is to enforce the implementation (overriding) of certain class methods in derived *Child Classes*.
 
-Python provides the `abc.ABCMeta` module for *Abstract Class* / *Abstract Mehod*
-handling which will be topic of discussion.
+Python provides the `abc.ABCMeta` module for handling *Abstract Classes* and *Abstract Methods*, which is the focus of this discussion.
 
 ## Abstract Class Methods
 
-Illustrating, a small use case / example.
+Let’s illustrate with a simple example:
 
-> The `@abc.abstractmethod` decorator modfifies a basic class method into an
-> *Abstract Class Method*.
+> The `@abc.abstractmethod` decorator marks a class method as an *Abstract Method*.
 
 ```python
 import abc
@@ -50,11 +44,9 @@ class Base(metaclass=abc.ABCMeta):
     def do_action(self):
         pass
 
-
 class Dancer(Base):
     def do_action(self):
         print('Dancer - dancing')
-
 
 class Walker(Base):
     def do_action(self):
@@ -64,20 +56,13 @@ class Walker(Base):
         print('Walker - pythonic silly walking.')
 ```
 
-Consider the previous code as your first implementation code.
-It is intended to extend the base code by multiple additional *Sub Classes*
-by *yourself* **or** by *other members* of the developer team.
+This base code is designed to be extended by yourself or other members of your development team. You want to ensure that every new *Sub Class* implements `do_action()`. If an implementer forgets to add this abstract method, an error should be raised.
 
-You want to ensure the `do_action()` implementation must be existent
-in any new *Sub Class*. If some implementor forgets adding your as abstract
-defined method, an error should be raised.
-
-*Abstract Class Methods* is your matching design pattern here.
+*Abstract Methods* provide the necessary design pattern for this.
 
 ## Implementation Check
 
-As stated out before, if someone implements the following code the wrong way
-(omit the `do_action()` method), a TypeError Exception must be raised.
+If someone implements a subclass incorrectly by omitting the `do_action()` method, a `TypeError` exception will be raised.
 
 ```python
 class Jumper(Base):
@@ -85,22 +70,19 @@ class Jumper(Base):
         print('Jumper doing something else')
 ```
 
-The Python interpreter will raise the correct TypeError Exception on class
-instantiation `c1 = Jumper()`.
+When instantiating this class (`c1 = Jumper()`), the Python interpreter raises the correct error:
 
 ```bash
 c1 = Jumper()
      ^^^^^^^^
-TypeError: Can't instantiate abstract class Jumper without an implementation
-for abstract method 'do_action'
+TypeError: Can not instantiate abstract class Jumper without an implementation for abstract method 'do_action'
 ```
 
-See example code `test-abstract-classes1.py`.
+See the example code `test-abstract-classes1.py`.
 
 ## Base Declaration
 
-Assume the following code, the `do_action()` method gets some program logic
-inside the *Base* class.
+Suppose the base class method `do_action()` contains some logic:
 
 ```python
 import abc
@@ -110,11 +92,9 @@ class Base(metaclass=abc.ABCMeta):
     def do_action(self):
         print('Base - Global moving.')
 
-
 class Dancer(Base):
     def do_action(self):
         print('Dancer - dancing')
-
 
 class Walker(Base):
     def do_action(self):
@@ -124,10 +104,7 @@ class Walker(Base):
         print('Walker - pythonic silly walking.')
 ```
 
-Due to the fact that *Abstract Class methods* **must** and always will be overloaded,
-the `Base.do_action()` never will be called. 
-
-Correct declaration.
+Because *Abstract Methods* must always be overridden, `Base.do_action()` will never be called directly. The correct abstract declaration is:
 
 ```python
 import abc
@@ -138,30 +115,26 @@ class Base(metaclass=abc.ABCMeta):
         pass
 ```
 
-See example code `test-abstract-classes2.py`, which demonstrates `do_action()` methods
-are only called inside child classes.
+See the example code `test-abstract-classes2.py`, which demonstrates that `do_action()` methods are only called inside child classes:
 
 ```bash
 python3 test-abstract-classes2.py
 ```
 
-will output:
+Output:
 
 ```bash
 Walker - walking
 Dancer - dancing
 ```
 
-See, `Base - Global moving` from `Base` class will **not** be displayed.
+Notice that “Base - Global moving” from the `Base` class is **not** displayed.
 
 ## Abstract Versus Non-Abstract
 
-A big misunderstanding is that an *Abstract Class* automatically inherits
-its abstractness to all of its methods automatically. This is not the case.
+A common misunderstanding is that an *Abstract Class* automatically makes all its methods abstract. This is not the case.
 
-Mixing *Abstract Class Methods* with *Non Abstract Class Methods* is a
-common design approach and enables a very smart way of abstraction / modeling
-your code.
+Mixing *Abstract Methods* with *Non-Abstract Methods* is a standard design approach and enables flexible abstraction in your code.
 
 ```python
 import abc
@@ -169,7 +142,6 @@ import abc
 class DecoratorClass():
     def do_some_global_stuff(self):
         print('Decorator - do some stuff from anywhere.')
-
 
 class Base(DecoratorClass, metaclass=abc.ABCMeta):
     def __init__(self):
@@ -179,12 +151,10 @@ class Base(DecoratorClass, metaclass=abc.ABCMeta):
     def do_action(self):
         pass
 
-
 class Dancer(Base):
     def do_action(self):
         print('Dancer - dancing')
         self.do_some_global_stuff()
-
 
 class Walker(Base):
     def do_action(self):
@@ -200,7 +170,7 @@ See example code `test-abstract-classes3.py`.
 python3 test-abstract-classes3.py
 ```
 
-will output:
+Output:
 
 ```bash
 Base - global thoughts.
@@ -213,22 +183,17 @@ Decorator - do some stuff from anywhere.
 
 # NotImplementedError
 
-So, after we have clarified some basic understanding about *Abstract Classes* and
-*Abstract Class Methods* continue with our *main* topic.
+Now that we have clarified *Abstract Classes* and *Abstract Methods*, let’s continue with our main topic.
 
-Some parts of my project code uses the *NotImplemented* paradigm / design pattern.
+Parts of my project use the *NotImplementedError* paradigm/design pattern.
 
-In short, like the name `NotImplementedError` implies, the exception should be used
-when some prgram functionality is planned to be implemented, but not at the current
-time is implemented.
+In short, as the name implies, the `NotImplementedError` exception should be raised when some functionality is planned but not yet implemented.
 
-Now, when some implementor or user tries to execute such a *Class Method*, the
-`NotImplementedError` is raised to signal: not implemented right now!
+When a user tries to execute such a method, `NotImplementedError` is raised to signal: not implemented yet.
 
 ## Pylint Issue
 
-Now, what made me a bit confused is the fact that Pylint is complaining about the
-following code.
+What confused me is that Pylint complains about the following code:
 
 ```python
 import abc
@@ -252,12 +217,11 @@ See example code `test-abstract-classes4.py`.
 python3 test-abstract-classes4.py
 ```
 
-proofs that Python interpreter behaves correctly (NotImplementedError Exception raised
-when `do_advanced_action()` is called from child class.
+This proves that the Python interpreter behaves correctly: `NotImplementedError` is raised when `do_advanced_action()` is called from a child class.
 
 ```bash
 Traceback (most recent call last):
-  File "python-code\test-abstract-classes4.py", line 16, in <module>
+  File "python-code/test-abstract-classes4.py", line 16, in <module>
     c1.do_advanced_action()
   File "test-abstract-classes4.py", line 5, in do_advanced_action
     raise NotImplementedError
@@ -266,66 +230,57 @@ NotImplementedError
 
 ## Pylint Implementation
 
-**Pylint** now claims (W0223) that `do_advanced_action()` is declared abstract in class
-`Base` and does not get overridden in class `Dancer`.
+**Pylint** claims (W0223) that `do_advanced_action()` is abstract in class `Base` but is not overridden in class `Dancer`.
 
 ```bash
-test-abstract-classes4.py:11:0: W0223: Method 'do_advanced_action' is abstract in
-class 'Base' but is not overridden in child class 'Dancer' (abstract-method)
+test-abstract-classes4.py:11:0: W0223: Method 'do_advanced_action' is abstract in class 'Base' but is not overridden in child class 'Dancer' (abstract-method)
 ```
 
-"???", i thought. This **must** be a **Pylint** bug.
+I thought, “This must be a Pylint bug.”
 
 ## Pylint Why?
 
-Filing a **Pylint** issue on github (see issue [#10192](https://github.com/pylint-dev/pylint/issues/10192)).
-
-After some deeper discussion with Mark Byrne (Pylint) Mark gave some hints that
-probably the Python documentation could be wrong.
+After filing a [Pylint issue (#10192)](https://github.com/pylint-dev/pylint/issues/10192), and a deeper discussion with Mark Byrne from Pylint, it was suggested that perhaps the Python documentation itself is unclear.
 
 > Python never makes mistakes.
 
-I thought. *Propably*, i was thinking the wrong way.
+Or so I thought. But maybe I was approaching this the wrong way.
 
 ## Python Documentation
 
-Current excerpt of the (3.10+) Python `NotImplementedError` Exception documentation.
+Current excerpt from the Python 3.10+ documentation for `NotImplementedError`:
 
-> ... In user defined base classes, abstract methods should raise this exception when 
-> they require derived classes to override the method, or while the class is being
-> developed to indicate that the real implementation still needs to be added ...
+> ... In user-defined base classes, abstract methods should raise this exception when they require derived classes to override the method, or while the class is being developed to indicate that the real implementation still needs to be added ...
 
-This is causing a Paradox.
+This creates a paradox.
 
 The following (correct) rules apply:
 
-- An *Abstract Class Method* exclusively is abstract when decorated with `@abc.abstractmethod` decorator
-- An *Abstract Class Method* always must be overloaded to ensure a different implementation
-- A `NotImplementedError` must be raised when a real (method) implementation has to be added later
+- A method is only abstract if decorated with `@abc.abstractmethod`.
+- Abstract methods must always be overridden to ensure a different implementation.
+- `NotImplementedError` should be raised when an actual method implementation is to be added later.
 
-Python Documentation:
+Python documentation says:
 
-> ... **abstract methods** should raise this exception when they require derived
-> classes to override the method ...
-
-![EmojiBomb](/emoji_bomb_16x16.png)
-![EmojiBomb](/emoji_bomb_16x16.png)
-![EmojiBomb](/emoji_bomb_16x16.png)
-**Incorrect**, the NotImplementedError Exception would never be raised in an
-*Abstract Class Method* because the base method never will be called if declared
-abstract.
-
-Python Documentation:
-
-> ... **abstract methods** should raise this exception while the class is being
-> developed to indicate that the real implementation still needs to be added ...
+> ... **abstract methods** should raise this exception when they require derived classes to override the method ...
 
 ![EmojiBomb](/emoji_bomb_16x16.png)
 ![EmojiBomb](/emoji_bomb_16x16.png)
 ![EmojiBomb](/emoji_bomb_16x16.png)
-Also **incorrect**, same behaviour: *Abstract Class method* always **must** be overloaded.
 
-The following code illustrates.
+**Incorrect:** `NotImplementedError` would never be raised in an abstract method, because the base method is never called if declared as abstract.
+
+Python documentation also says:
+
+> ... **abstract methods** should raise this exception while the class is being developed to indicate that the real implementation still needs to be added ...
+
+![EmojiBomb](/emoji_bomb_16x16.png)
+![EmojiBomb](/emoji_bomb_16x16.png)
+![EmojiBomb](/emoji_bomb_16x16.png)
+
+Also **incorrect**: Same behavior — abstract methods must always be overridden.
+
+Consider this code:
 
 ```python
 import abc
@@ -335,10 +290,8 @@ class Base(metaclass=abc.ABCMeta):
     def do_action(self):
         raise NotImplementedError
 
-
 class Walker(Base):
     pass
-
 
 c1 = Walker()
 c1.do_action()
@@ -351,22 +304,20 @@ Traceback (most recent call last):
   File "test-abstract-classes5.py", line 13, in <module>
     c1 = Walker()
          ^^^^^^^^
-TypeError: Can't instantiate abstract class Walker without an implementation
-for abstract method 'do_action'
+TypeError: Can not instantiate abstract class Walker without an implementation for abstract method 'do_action'
 ```
 
-If `do_action()` is declared abstract, the `TypeError` raised by internal
-abc Python module prevents raising `NotImplementedError`.
+Since `do_action()` is declared abstract, the internal `abc` module raises `TypeError`, so `NotImplementedError` is never triggered.
+
+Compare with:
 
 ```python
 class Base():
     def do_action(self):
         raise NotImplementedError
 
-
 class Walker(Base):
     pass
-
 
 c1 = Walker()
 c1.do_action()
@@ -383,36 +334,23 @@ Traceback (most recent call last):
 NotImplementedError
 ```
 
-This looks exactly like our achievement. Raise the `NotImplenentedError`
-Exception when the base *Class Method* `do_action()` will be called from a
-child class and is not yet implemented in the *Base Class*.
+This achieves the intended effect: `NotImplementedError` is raised when the base method is called from a child class and not yet implemented.
 
-So, the `do_action()` method in the base class must **not** be declared
-abstract.
+Therefore, the `do_action()` method in the base class must **not** be declared abstract for this pattern.
 
 ## Defining Abstractness
 
-There is some kind of confusion about Python *Abstract Classes* circulating
-on the internet.
+There is some confusion online regarding Python *Abstract Classes*.
 
-Some people are talking about *Abstract Class Methods* without declaring them
-abstract by using abc modules `@abc.abstractmethod` decorator.
+Some refer to *Abstract Methods* without actually declaring them as abstract using the `@abc.abstractmethod` decorator.
 
-Also there could be a misunderstanding between the terms *Abstract Class* and
-*Abstract Class Method*.
+Also, there is often confusion between the terms *Abstract Class* and *Abstract Method*.
 
-If an *Abstract Class* is setup using `metaclass=abc.ABCMeta` it does **not**
-automatically mean every defined method will be declared abstract.
+Setting up an *Abstract Class* using `metaclass=abc.ABCMeta` does **not** automatically make all its methods abstract. It simply derives the `abc.ABCMeta` base class, including the internal routines for `TypeError` exception handling.
 
-This only derives the `abc.ABCMeta` base class into the childs internal
-`__metaclass__` member consisting of the routines including `TypeError`
-Exception handling.
+## Abstract NotImplementedError
 
-## Abstract NotImplementedError 
-
-The correct way to define *Abstract Class Methods* as not implemented is raising
-`NotImplementedError` inside the corresponding *Child Class Method*
-(**not** in the base).
+The correct way to raise `NotImplementedError` for *Abstract Methods* is to do so in the corresponding *Child Class Method*, **not** in the base class.
 
 ```python
 import abc
@@ -422,31 +360,27 @@ class Base(metaclass=abc.ABCMeta):
     def do_action(self):
         pass
 
-
 class Sub1(Base):
     def do_action(self):
         raise NotImplementedError
 
-
 class Sub2(Base):
     pass
-
 
 class Sub3(Base):
     def do_action(self):
         print('Sub3 - do action')
 
-
 try:
     c1 = Sub1()
     c1.do_action()
-except NotImplementedError as e:
+except NotImplementedError:
     pass
 
 try:
     c2 = Sub2()
     c2.do_action()
-except TypeError as e:
+except TypeError:
     pass
 
 c3 = Sub3()
@@ -457,24 +391,20 @@ See example code `test-abstract-classes7.py`.
 
 # Documentation Corrected
 
-My proposal to change the Python documentation.
+My proposal to improve the Python documentation:
 
-> In user defined base classes, any non-abstract method should raise this
-> exception when derived classes require to override the method to indicate
-> that the real implementation still needs to be added.
+> In user-defined base classes, any non-abstract method should raise this exception when derived classes are required to override the method, indicating that the real implementation still needs to be added.
 
 See `test-abstract-classes6.py`.
 
-> Abstract methods should raise this exception in the implementation part
-> (derived class).
+> Abstract methods should raise this exception in the implementation part (derived class).
 
 See `test-abstract-classes7.py`.
 
-I am in permanent discussion on Pylint / github to keep Python and Pylint as good as possible.
+I am in ongoing discussion on Pylint’s GitHub to keep Python and Pylint as robust as possible.
 
 # Practical Use Cases
 
-The examples section of my **python-micro-esb** project contains some illustrative
-examples how to use *Abstract Class Methods* in detail.
+The examples section of my **python-micro-esb** project contains illustrative examples on how to use *Abstract Methods* in detail:
 
 [https://github.com/clauspruefer/python-micro-esb](https://github.com/clauspruefer/python-micro-esb)

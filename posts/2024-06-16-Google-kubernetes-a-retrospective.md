@@ -5,435 +5,401 @@ tags: [network, infrastructure, kubernetes, english]
 
 # Post Meta-Data
 
-| Datum      | Sprache                  | Autor                                  | Beschreibung                                      |
-|------------|--------------------------|----------------------------------------|-------------------------------------|
-| 11.12.2023 | Englisch                 | Prüfer, Claus (Chief-Prüfer)           | Eine Kubernetes Retrospektive / Übersicht der Basis-Features und deren Anwendbarkeit in Real-Live Szenarien                                             |
+| Date       | Language | Author                          | Description                                                                                           |
+|------------|----------|---------------------------------|-------------------------------------------------------------------------------------------------------|
+| 11.12.2023 | English  | Claus Prüfer (Chief-Prüfer)     | A Kubernetes retrospective / overview of core features and their applicability in real-life scenarios |
 
 ## Kubernetes Summary
 
-**My very fine-elaborated conclusion: 50% Love it - 50% Hate it.**
+**My finely-elaborated conclusion: 50% Love it – 50% Hate it.**
 
-The Google Kubernetes Project - a Docker Distribution Engine - was born round about 14-years ago. Today it plays a major role in efficiently setting up / managing big virtual infrastructure and scaling Cloud-Applications at Enterprise and Carrier level ![Cloud](emoji_cloud_50x50.png).
+The Google Kubernetes Project—a Docker distribution engine—was born about 14 years ago. Today, it plays a major role in efficiently setting up and managing large virtual infrastructures, scaling applications, and supporting modern cloud-native development.
 
-Kubernetes has been designed from ground-up to implement the following features:
-
-```
-
-* Network Abstraction / Virtualization for Layer-3 (IP) and Layer-7 (Application)
-* Application Scaling / Performance Management
-* Application Storage / Memory Management
-* Modern / declarative .yaml / JSON based Object Configuration
-* Single Point Of Failure-less Infrastructure
-* Enhanced Load-Balancing Features
-* Custmizable Role Based Access / DevOps / App-Functionality
-* Optimized Developer / Operations Teamwork
-* External API / Application Integration (e.g. OpenStack or Ingress-NGINX)
-* Rolling Updates (Realtime Live-Updates with 0% service outage)
-* Docker Container Management / Integration
-* Detailed, Transparent Service / Application Metrics
-* Strutured / Auto-Updated Documentation
-* Transparent OpenSource Project / Source-Code insight
+Kubernetes was designed from the ground up to implement the following features:
 
 ```
+* Network abstraction / virtualization for Layer-3 (IP) and Layer-7 (Application)
+* Application scaling / performance management
+* Application storage / memory management
+* Modern, declarative YAML / JSON-based object configuration
+* Infrastructure with no single point of failure
+* Enhanced load balancing features
+* Customizable role-based access / DevOps / app functionality
+* Optimized collaboration between developers and operations teams
+* External API / application integration (e.g., OpenStack or Ingress-NGINX)
+* Rolling updates (real-time live updates with zero service outage)
+* Docker container management / integration
+* Detailed, transparent service and application metrics
+* Structured, auto-updated documentation
+* Transparent open-source project / source code insight
+```
 
-**Oppinion**
+**My Opinion**
 
-> - "Whoa!" ![HeartEyes](emoji_heart_eyes_16x16.png)![HeartEyes](emoji_heart_eyes_16x16.png)![HeartEyes](emoji_heart_eyes_16x16.png), this is what Network-Administrators and Developers have dreamt of. "Working like a lot: *yesterday*", "I will save the time of my life / *always on* **booking.com**".
-> - Real-Live scenarios unfortuanetly show a complete different behaviour "in some parts". The complexity / deep encapsulated dependencies / finding solutions often takes cost intensive / **extraordinary** long times.
-> - **Infact** the 50% astonishing-nice features often make forget the other, dark side of the Kubernetes-Moon ![MoonFace](emoji_quarter_moon_face_16x16.png)![MoonFace](emoji_quarter_moon_face_16x16.png)![MoonFace](emoji_quarter_moon_face_16x16.png).
+> - “Whoa!” ![HeartEyes](/emoji_heart_eyes_16x16.png), this is what network administrators and developers have been dreaming of.
+> - Unfortunately, real-life scenarios sometimes reveal a different story. The complexity, deeply-encapsulated dependencies, and problem-solving often require costly, extraordinary effort.
+> - In fact, the 50% outstanding features can make you forget about the other, darker side of the Kubernetes moon ![MoonFace](/emoji_quarter_moon_face_16x16.png).
 
 # Implementation
 
-Kubernetes is written in the Programming-Language Go. Go is a C-similar static typed Programming-Language with additional Interpreter-related functionality (memory safety, garbage collection and CSP-style concurrency). This adds quite a lot of security when used by inexpirienced developer, also it is compiled to machine-code, so its quite fast. Also a rich set of Network-Libraries are included which makes it easier for inexperienced / non-network-experts (Layer-2, Layer-3 and Layer-7) to be more productive.
+Kubernetes is written in the programming language Go. Go is a statically typed language similar to C, with additional interpreter-related functionality such as memory safety, garbage collection, and CSP-style concurrency.
 
-Programming in an OOP-based way is possible (functional), but not comparable to classical C++ / Python implementations. To achieve OOP behaviour workarounds must be used, extended OOP-Patterns, even basic (e.g. overloading) bring the *implement-much-too-much-leading-to-unclean-code* way along. ![ThumbsDown](emoji_thumbs_down_50x50.png) ![ThumbsDown](emoji_thumbs_down_50x50.png)
+OOP-style programming is possible (functionally), but not comparable to classic C++ or Python implementations. Achieving full OOP behavior requires workarounds, extended patterns, and can be cumbersome.
 
-**Oppinion**
+**My Opinion**
 
-> - Due to increasing project-complexity we recommend using a different Programming-Language, e.g. Python could have saved multiple development years, Go-Lang in our oppinion has been the wrong strategy.  ![Snowman](emoji_snowman_50x50.png)
-> - Also we do not understand why a control-layer Application needs to be written in a compiled Programming Language, often the Update-Processing by kubectl for multiple backend actions takes extraorbitary long time and could be implemented in Commodore C64 Basic.  ![Sleeping](emoji_sleeping_50x50.png) ![Zzz](emoji_zzz_50x50.png)
+> - Due to increasing project complexity, we recommend using a different programming language. Python, for example, could have saved years of development. In our opinion, Go was not the best strategic choice.
+> - We also question why a control-layer application needs to be written in a compiled language. Often, update processing via kubectl for multiple backend actions takes unnecessarily long.
 
 # Engineering Quality
 
-The Network Layer is very bad implemented in my oppinion. Dispite everything is working fine, the way how it is implementation really is a pain in the \$\$\$. If you are an experienced Layer-2 - Layer-7 Network / IP-Engineer multiple methods especially for Load-Balancing / Proxy / Service Requests - that it curls up your toenails. ![Astonished](emoji_astonished_50x50.png)
+The network layer is poorly implemented, in my opinion. Despite everything working fine, the actual implementation is challenging for experienced network engineers.
 
 ```
-
-* NAT (Network Address Translation) used at unnessecary internal locations
-* No 100% Single-Point-Of-Failure-Less Infrastructure (like promised)
-* Internal Service Abstraction uses deviant Cross-Dependency-Definitions
-
+* NAT (Network Address Translation) used unnecessarily at internal locations
+* No truly single-point-of-failure-less infrastructure (as promised)
+* Internal service abstraction uses inconsistent cross-dependency definitions
 ```
 
-**Oppinion**
+**My Opinion**
 
-> - Kubernetes indeed is working fine when configured correctly. On the other side: our modern engineering demands should be based on much much higher interest!
+> - Kubernetes works well when configured correctly. However, modern engineering demands should be much higher!
 
 # IP Assignment / DNS
 
-IP / DNS / Hostname Assignment, done in a new way. Indeed the concept behind is a really good one. Say incoherent, loose distributed Configuration-Files goodbye. All Definitions are handled via centralized .yaml (XML or JSON like) hierarchical organized Meta-Data.
+IP, DNS, and hostname assignment are handled in a novel way. The concept is excellent: incoherent, loosely distributed configuration files are gone. All definitions are managed centrally via .yaml files.
 
-**Oppinion**
+**My Opinion**
 
-![Crown](emoji_crown_50x50.png) Looks like king.
+![Crown](/emoji_crown_50x50.png) A kingly concept.
 
-> Chuck-Norris secretly is crying in bed all night because he didnt invent this masterpiece of idea! ![Bulb](emoji_bulb_16x16.png) ![Bulb](emoji_bulb_16x16.png) ![Bulb](emoji_bulb_16x16.png)
-> Adding multiple Love-Points ![LoveLetter](emoji_love_letter_50x50.png) ![LoveLetter](emoji_love_letter_50x50.png) ![LoveLetter](emoji_love_letter_50x50.png) 
+> Chuck Norris secretly cries at night because he didn’t invent this masterpiece! ![Bulb](/emoji_bulb_16x16.png)
+> Adding multiple love points! ![LoveLetter](/emoji_love_letter_50x50.png)
 
 # Service Abstraction
 
-But do not think setting up a multi-tier-level Service-Architecture will be an easy-going task. The Abstraction-Models behind the scene are sometimes highly encapsulated and sometimes painfull to understand.
+However, don’t expect setting up a multi-tier service architecture to be an easy task. The abstraction models are sometimes highly encapsulated and painful to understand.
 
-Especially finding solutions in the Kubernetes-Documentation and / or Internet often lets you go round in circles. Reaching the origin without having found a suitable solution is a commonly arising fact.
+Finding solutions in the Kubernetes documentation or online can often feel like going in circles, returning to the origin without a suitable solution.
 
-**Oppinion**:
+**My Opinion**
 
-![Computer](emoji_computer_50x50.png) 42 infact seems the answer to the "Great Question" of "Life, the Universe and Everything".
+![Computer](/emoji_computer_50x50.png) 42 indeed may be the answer to the “Great Question” of “Life, the Universe, and Everything”.
 
-> This is sometimes quite annoying because you really do not find a satisfying answer in an adequate ammount of time / going in circles round and round. ![RedCircle](emoji_red_circle_50x50.png) 
+> This can be frustrating, as you often don’t find a satisfactory answer in a reasonable amount of time. ![RedCircle](/emoji_red_circle_50x50.png)
 
 # Documentation
 
-The Kubernetes Documentation looks very good at first sight. Both Graphical Style and Content look above average. After digging deeper, spending days searching for problem resolutions, you may think: "Did Google blend me?", "Am i complete dully?" or even "Live has no meaning anymore". ![Disappointed](emoji_disappointed_50x50.png) 
+The Kubernetes documentation looks great at first glance—both style and content are above average. However, after digging deeper and spending days searching for solutions, you may realize:
 
-Like covered in the last section, documentation links you to sub-section 1, links you to sub-section 2, links you to subsection 3, links you to sub-section 4 and swoosh: you are back at sub-section 1 without any further progress. ![Disappointed](emoji_disappointed_50x50.png) ![Disappointed](emoji_disappointed_50x50.png)
+Documentation often links you to sub-section 1, then 2, then 3, then 4, and suddenly you’re back at 1—endlessly looping.
 
-**Oppinion**
+**My Opinion**
 
-![Beers](emoji_beers_50x50.png) ![Cocktail](emoji_cocktail_50x50.png) Honestly! ![Beer](emoji_beer_50x50.png) ![GlassWine](emoji_wine_glass_50x50.png)
+![Beers](/emoji_beers_50x50.png) ![Cocktail](/emoji_cocktail_50x50.png) Honestly! ![Beer](/emoji_beer_50x50.png) ![GlassWine](/emoji_wine_glass_50x50.png)
 
-> Go to your refridgerator, consume alcoholic content, step further to your drug cabinet. Finally call your doctor for prescription-only meds and finally read Kubernetes-Documentation; could not add anythin due to following input ![Pill](emoji_pill_50x50.png) ![Dizzy](emoji_dizzy_50x50.png) ![Cocktail](emoji_cocktail_50x50.png) ![Mushroom](emoji_mushroom_50x50.png) ![Ambulance](emoji_ambulance_50x50.png).
+> Visit your fridge, consume some alcohol, then head to your medicine cabinet. Finally, call your doctor for prescription meds before diving back into the Kubernetes docs; couldn’t add a better summary.
 
 # Metrics / Logging
 
-"Uhh", you think, after this incredible new-style-idea of getting highly structured XML configuration meta-data from each Kubernetes Object via Web-Service. Good bye old file-based-logging, receiving centralized pre-structured JSON metadata with meaningful separated log properties. I am so, so much excited!
+You might think the structured XML configuration metadata from each Kubernetes object via web service is fantastic. Goodbye, old file-based logging!
 
-Fiddlesticks! It is even worse, it is proposed by Kubernetes-Documentation setting up a centralized logging that needs NFS-Storage configuration for pod log writes, external Log-Aggregator plugins and more (???). WTF?
+Fiddlesticks! It’s worse than expected. Kubernetes documentation suggests setting up centralized logging with NFS storage for pod log writes, external log aggregator plugins, and more.
 
-"Ahh", and it is adviced using two (yes 2) external software products (*Prometheus* **and** *Grafana*) which aggregates / converts log files into retrievable JSON metadata. Also Documentation sucks. ![Rage](emoji_rage_16x16.png) ![Rage](emoji_rage_16x16.png) ![Rage](emoji_rage_16x16.png) This is not what i expected!
+It also recommends using two (yes, two) external products—Prometheus and Grafana—to aggregate and convert log files into retrievable JSON metadata. The documentation here is not helpful.
 
-Call Chuck immediately, Last name: Norris. Could you please make Cow-Bernetes behave again! ![Ambulance](emoji_ambulance_50x50.png) ![Hostpital](emoji_hospital_50x50.png)
+Call Chuck immediately—last name: Norris. Can he make Cow-Bernetes behave again? ![Ambulance](/emoji_ambulance_50x50.png)
 
-> While Cow-Bernetes resides in hospital, Chuck wrote us a centralized log-collector script (Windows Scripting Host) compatible with Windows-NT (took him only 5 minutes) ![Bulb](emoji_bulb_16x16.png) ![Bulb](emoji_bulb_16x16.png) ![Bulb](emoji_bulb_16x16.png).
+> While Cow-Bernetes is in the hospital, Chuck wrote us a centralized log collector script (Windows Scripting Host) compatible with Windows NT—in only 5 minutes! ![Bulb](/emoji_bulb_16x16.png)
 
-**Oppinion**
+**My Opinion**
 
-> Kubernetes sometimes can turn you really upside-down. This feature should have been implemented since Kubernetes Version "1.0". Adding two hate points. Rotten ![Tomatoe](emoji_tomatoe_50x50.png) ![Tomatoe](emoji_tomatoe_50x50.png).
+> Kubernetes can really turn you upside-down. This feature should have been implemented since version 1.0. Adding two hate points. Rotten ![Tomatoe](/emoji_tomatoe_50x50.png)
 
-# LoadBalancing / Ingress
+# Load Balancing / Ingress
 
-"Yippie", Load-Balancing got a new name "Ingress". Thats why Service-Abstraction under Kubernetes is bull\$\$\$\$. I assume somewhere in the Base-Abstraction-Layer 14 years ago nobody thought about Transport Layer Security and HTTP Protocol (Port 80, 443) being such important.
+“Yippie,” load balancing now has a new name: “Ingress.” But service abstraction under Kubernetes is problematic. I assume nobody thought about true abstraction 14 years ago.
 
-HTTP gets a different handling in Kubernetes than other TCP/IP ports and is not handled in a generic way. Especially for unskilled newbies, this could lead to intense brain-\$\$\$\$.
+HTTP is handled differently than other TCP/IP ports and not in a generic way. For newbies, this can lead to intense brain overload.
 
-**Oppinion**
+**My Opinion**
 
-> If Service abstraction is configured correctly, kubernetes works like a charm! But setting up detailed Service Properties / Relations in the correct way sometimes could get you mad.
+> If service abstraction is configured correctly, Kubernetes works like a charm! But setting up detailed service properties and relationships can drive you mad.
 
-> Traditionally Ingress describes incoming network packets from a non-internal network. Vice versa Egress outgoing packets. Somehow ongoing development starts mixing the OSI-Layers which leads to more misunderstandings.
+> Traditionally, ingress describes incoming packets from external networks and egress outgoing packets. Ongoing development sometimes mixes OSI layers, leading to more confusion.
 
-**Oppinion**
+**My Opinion**
 
-![TropicalDrink](emoji_tropical_drink_50x50.png) Its between.
+![TropicalDrink](/emoji_tropical_drink_50x50.png) It’s somewhere in between.
 
-> So peculiar the configuration might be: ![Tomatoe](emoji_tomatoe_50x50.png) the result is: ![LoveLetter](emoji_love_letter_50x50.png). 
+> However peculiar the configuration, the result can be both rotten ![Tomatoe](/emoji_tomatoe_50x50.png) and lovely ![LoveLetter](/emoji_love_letter_50x50.png).
 
-# Role Based Access Control
+# Role-Based Access Control
 
-The Role-Based-Access-Control system combined with .yaml definitions indeed is a really nice concept. Also if setup correctly in combination with a Service-Controller element (Application Middleware) it enhances security and makes DevOps (Development / Operations) work much much easier.
+The role-based access control system combined with YAML definitions is a really nice concept. If set up correctly in combination with a service-controller element (application middleware), it works well.
 
-**Oppinion**
+**My Opinion**
 
-![Dart](emoji_dart_50x50.png) Direct hit!
+![Dart](/emoji_dart_50x50.png) Direct hit!
 
-> We have to admin: adding 2 Love-Points or maybe ... even 3: ![LoveLetter](emoji_love_letter_50x50.png) ![LoveLetter](emoji_love_letter_50x50.png) ![LoveLetter](emoji_love_letter_50x50.png).
+> We must admit: adding 2, maybe even 3, love points! ![LoveLetter](/emoji_love_letter_50x50.png)
 
 # Failover / Redundancy
 
-The Kubernetes-System as a whole provides Failover and Redundancy, An additional OpenStack VM Layer (2 or more Virtual Machines) distributes the Kubernetes Objects / Pods on multiple redundant hardware; this extends Reliability nearly to 100%.
+Kubernetes provides failover and redundancy. An additional OpenStack VM layer (two or more VMs) distributes Kubernetes objects/pods on multiple redundant hardware.
 
-The Network-Controller model has a long history. First Implementations under Linux, redundancy daemons - STONITH (Shot the other node in the head), VRRP (Virtual Redundancy Protocol) and simlilar came up. Connecting multiple Appication-Servers via Serial to interact when Ethernet-Networking failed for the Monitoring-Protocol were usual concepts.
+The network-controller model has a long history. Early Linux implementations, redundancy daemons—STONITH (Shoot The Other Node In The Head), VRRP (Virtual Redundancy Protocol), and similar—laid the groundwork.
 
-These concepts currently drive a Kubernetes "Multi-Ingress-Loadbalancer-Concept". This implies one "virtual" Load Balancer (commonly Ingress-NGINX) will take over when one crashed. The concept is not generic where it should be! A Hardware, SDN (Software Defined Networking) solution could solve the problem. We will discuss this topic in a following Kubernetes Post.
+These concepts now drive Kubernetes’ “multi-ingress load balancer” concept. This means one virtual load balancer (commonly Ingress-NGINX) takes over when another crashes. The concept is not perfect but works.
 
-**Oppinion**
+**My Opinion**
 
-![Microscope](emoji_microscope_50x50.png) Take a little closer look.
+![Microscope](/emoji_microscope_50x50.png) Take a closer look.
 
-> Kubernetes currently is the best scaling product on the market, even if improvable by new-technology like SDN. 2 Love-Points: ![LoveLetter](emoji_love_letter_50x50.png) ![LoveLetter](emoji_love_letter_50x50.png).
+> Kubernetes is currently the best scaling product on the market, even if it could be improved by new technologies like SDN. Two love points! ![LoveLetter](/emoji_love_letter_50x50.png)
 
 # Scaling
 
-"Huh - Hah", Johnny Bravo would say. Scaling is another important topic. Kubernetes Love-Points going up. Kubernetes uses Linux cgroups for process-memory separation as fundament. If Kubernetes is configured correctly (Services / Network Infrastructure) the Administrator is able to automatically scale up Application / Infrastructure on occuring peaks and scale down when the peaks decrease again.
+“Huh-hah,” as Johnny Bravo would say. Scaling is another key topic. Kubernetes love points go up! Kubernetes uses Linux cgroups for process/memory separation as a foundation. If configured correctly, it performs admirably.
 
-**Oppinion**
+**My Opinion**
 
-![Cool](emoji_cool_50x50.png) This is cool man (Milka).
+![Cool](/emoji_cool_50x50.png) This is cool, man (Milka).
 
-> Again adding 4 Love-Points. ![LoveLetter](emoji_love_letter_50x50.png) ![LoveLetter](emoji_love_letter_50x50.png) ![LoveLetter](emoji_love_letter_50x50.png) ![LoveLetter](emoji_love_letter_50x50.png) But: **Test Memory Settings** sufficient before deploying mission critical Services. Linux OOM-Killer is a \$\$\$\$\$. :top:
+> Adding 4 love points! ![LoveLetter](/emoji_love_letter_50x50.png)
 
 # Rolling Updates
 
-Rolling updates, Docker-Container-Updates in Runtime without switching Environments and zero (0) downtime. Nothing to do, just update the Docker container images in your linked registry and push the button. Done.
+Rolling updates—Docker container updates in runtime without switching environments and zero downtime. All you need to do is update the container images in your registry and push the buttons.
 
-Prerequisite of course is a solid Test-Framework. If the application inside the docker container misbehaves after update: Game Over.
+Of course, a solid test framework is essential. If the application inside the container misbehaves after an update: Game Over.
 
-**Oppinion**
+**My Opinion**
 
-![Star](emoji_star_50x50.png) Superb Feature!
+![Star](/emoji_star_50x50.png) Superb feature!
 
-> This is an additional love-increasing feature, add 2 Love-Points ![LoveLetter](emoji_love_letter_50x50.png) ![LoveLetter](emoji_love_letter_50x50.png).
+> This is another love-increasing feature—add 2 love points! ![LoveLetter](/emoji_love_letter_50x50.png)
 
 # System Integration
 
-Wanna be a Systems-Integrator? Better not with Kubernetes. Bloating, bloating, bloating. Thats the part where the Design-Conecpt shows multiple negative impacts. Defining simple types can be very time consuming, the meta-data (YAML / JSON) for some configuration properties of your application in my oppinion is kind of too deep abstracted.
+Want to be a systems integrator? Better not with Kubernetes. Bloat abounds. This is where the design concept shows multiple negative impacts. Defining simple types can be very time-consuming.
 
-This could lead to much more maintaining effort for your kubernetes-integrated-app than you imagined. If you compare e.g. the popular nginx web-server. It is used as 3-party module by Kubernetes as "ingress-nginx" Load-Balancer / Reverse-Proxy. A nginx configuration also for complex (TLS Client-Cert-Authentication) setups is non-trivial compared to the "non-Kubernetes" version.
+This can mean more maintenance effort than you expected. Compare the popular nginx web server, used by Kubernetes as “ingress-nginx.”
 
-Porting "My-App" to Kubernetes could be very time consuming, but no other software-product currently on the market provides this functionality. Also a bloated setup / over-average work could justify all the Kubernetes-Advantages: just be aware of huge implementation effort!
+Porting “My-App” to Kubernetes can be very time-consuming, but no other software currently provides this breadth of functionality. The extra work may be justified.
 
-**Oppinion**
+**My Opinion**
 
-![Rocket](emoji_rocket_50x50.png) Dispite negative oppinion at first.
+![Rocket](/emoji_rocket_50x50.png) Despite initial negative opinions:
 
-> This is an additional love-increasing feature, add 2 Love-Points: ![LoveLetter](emoji_love_letter_50x50.png) ![LoveLetter](emoji_love_letter_50x50.png).
+> This is another love-increasing feature—add 2 love points! ![LoveLetter](/emoji_love_letter_50x50.png)
 
-> The industry should overthink developing a *Kubernetes v2.0*, *Final-rounded-Kube* or similar, it could be worth the effort: ![Star](emoji_star_50x50.png) ![Star](emoji_star_50x50.png) ![Star](emoji_star_50x50.png).
+> The industry should consider developing *Kubernetes v2.0*, *Final-Rounded-Kube*, or something similar—it could be worth the effort! ![Star](/emoji_star_50x50.png)
 
 # Development Efficiency
 
 ## Kubernetes Apps
 
-Using Kubernetes the correct way, development speed / DevOps efficiency especially in large environments can be improved by impressive amounts. Additionally combining new-style, agile development-methods even can increase productivity further.
+Used correctly, Kubernetes can dramatically improve development speed and DevOps efficiency, especially in large environments. Combining agile methods adds even more benefit.
 
-Compared to old-fashioned paper-work (see following workflows) it is a gigantic improvement / time saving.
+Compared to old-fashioned paperwork (see workflows below), it’s a huge improvement.
 
-**Oldfashioned Development-Lifecycle**
-
-```
-
-1. RFP (Request for Proposal) => RFC (Request for Comment)
-2. Update RFC => Projectmanager
-3. Projectmanager => Coder
-4. Coder => Test
-5. Test => Failure
-6. Failure => Repeat from step
+**Old-fashioned Development Lifecycle**
 
 ```
+1. RFP (Request for Proposal) → RFC (Request for Comment)
+2. Update RFC → Project manager
+3. Project manager → Coder
+4. Coder → Test
+5. Test → Failure
+6. Failure → Repeat from step 1
+```
 
-Even worse: some components do not behave like expected, back to step 1, update RFP => **phew**.
+Even worse: some components don’t behave as expected, so back to step 1. **Phew.**
 
-> Fatboy Slims slightly modified whiteness: "Eat, Sleep, Code, Repeat" could lead to sudden death ![Skull](emoji_skull_16x16.png) ![Skull](emoji_skull_16x16.png) ![Skull](emoji_skull_16x16.png) regarding the oldfashioned way.
+> Fatboy Slim’s slightly modified wisdom: “Eat, Sleep, Code, Repeat” could lead to sudden death ![Skull](/emoji_skull_16x16.png)
 
-**Oppinion**
+**My Opinion**
 
-![CheckeredFlag](emoji_checkered_flag_50x50.png) Race speed improved!
+![CheckeredFlag](/emoji_checkered_flag_50x50.png) Race speed improved!
 
-> We will go ![Rocket](emoji_rocket_50x50.png) ![Rocket](emoji_rocket_50x50.png) ![Rocket](emoji_rocket_50x50.png) now! ![LoveLetter](emoji_love_letter_50x50.png) love increasing.
+> We’re off! ![Rocket](/emoji_rocket_50x50.png) Love points increased.
 
 ## Kubernetes Base
 
-As stated out some topics earlier, the following changes could help improve development times even much more:
+As stated earlier, the following changes could help improve development times even further:
 
 ```
-
-* Use better suited (real OOP) Programming Language as Base
-* Develop nice Network-Abstraction-Layer modules for Component-Inter-Communication
-* Do not integrate REST as OOP Abstraction Model, use direct JSON POST
-* Integrate better API Abstraction Model(s)
-
+* Use a better-suited (real OOP) programming language as the base
+* Develop improved network abstraction modules for component inter-communication
+* Don’t integrate REST as an OOP abstraction model; use direct JSON POST
+* Integrate better API abstraction models
 ```
 
-**Oppinion**
+**My Opinion**
 
-![Rabbit](emoji_rabbit_50x50.png) Race speed decreased.
+![Rabbit](/emoji_rabbit_50x50.png) Race speed decreased.
 
-> "The speed is down", a famous track by Kenny Loggins. Or was it: "The heat is on". No love, no hate, just a bit ![Disappointed](emoji_disappointed_50x50.png).
+> “The speed is down,” as Kenny Loggins said. Or was it “The heat is on”? No love, no hate, just some disappointment ![Disappointed](/emoji_disappointed_50x50.png)
 
 # Continuous Integration
 
-Multiple CVS management tools like *GitLab* already ship with Kubernetes integration. We will not go too deep in detail, if you need more information you should visit the GitLab documentation. Currently i just inspected GitLab no other similar tools.
+Multiple CVS management tools like GitLab ship with Kubernetes integration. For details, visit the GitLab documentation. Current integrations require a communication daemon to interact with the Kubernetes cluster.
 
-A first look in GitLab Kubernetes integration tells us we need some communication daemon installed somewhere to communicate with your Kubernetes-Cluster. I am a fan of simple solutions without need of installing 5000 additional components which need updates, maintaince, time. Multiply with each component used: even more time. Nobody really wants that.
+I favor simple solutions without extra daemons. GitLab also has Terraform for infrastructure as code, a Docker registry, and hash-based authentication. This could make direct Kubernetes plugins unnecessary.
 
-As GitLab also has Terraform as Infrastructure as Code (IaC) Plugin and a Docker Registration including hash-based Authentication management, this *could* make the use of the direct Kubernetes Plugin obsolete.
+In our projects, the DevOps team tries to avoid overhead, so we use a custom *Kubernetes installer* for deployment (includes various environments, not just GitLab).
 
-I am not too deep into the CI topic, but in projects our DevOps team tries to avoid overhead; so we use our own *Kubernetes-Installer* for deployment (includes different Kubernetes-Environments, non GitLab managed). Testing is triggered in GitLab via Docker-Containers, Web-App-Tests use Selenium framework. Our installer generates *Terraform-Templates* for all environments created: Wham bam, thank you maam!
+**My Opinion**
 
-**Oppinion**
+![Fire](/emoji_fire_50x50.png) On fire if properly implemented.
 
-![Fire](emoji_fire_50x50.png) On fire if correctly implemented.
-
-> If CI is implemented in the correct way (e.g. in combination with GitLab): im loving it: ![LoveLetter](emoji_love_letter_50x50.png) ![LoveLetter](emoji_love_letter_50x50.png).
+> If CI is implemented correctly (e.g., with GitLab), I love it! ![LoveLetter](/emoji_love_letter_50x50.png)
 
 # Security
 
-Security currently plays a major role for direct internet-connected systems and company-networks. To be on the safe side with Kubernetes you have to be aware of multiple security concepts and how they are implemented.
+Security is currently paramount for internet-connected systems and company networks. To be safe with Kubernetes, you must understand multiple security concepts and how to apply them.
 
-A short introduction / overview of currently global adapted security-mechanism:
-
-```
-
-* Time-based Token (Hash) Authentication
-* Smart-Card Authentication
-* 2 Factor Authentication / TPM / Biometrics
-* Single Sing On / Password Vaults
+Here’s an overview of currently global security mechanisms:
 
 ```
+* Time-based token (hash) authentication
+* Smart-card authentication
+* 2-factor authentication / TPM / biometrics
+* Single sign-on / password vaults
+```
 
-**Oppinion**
+**My Opinion**
 
-![Unlock](emoji_unlock_50x50.png) You feel a bit unlocked / insecure sometimes.
+![Unlock](/emoji_unlock_50x50.png) Sometimes you feel a bit “unlocked” or insecure.
 
-> Security should play a much more intense role in Kubernetes. Read the following cahpters to understand: ![ThumbsDown](emoji_thumbs_down_50x50.png).
+> Security should play a much more prominent role in Kubernetes. Read the following chapters for details. ![ThumbsDown](/emoji_thumbs_down_50x50.png)
 
 ## Time-based Token Auth
 
-Currently "Time-based Token Authentication" is used by nearly all Cloud Services including Docker and Kubernetes. A temporarily (limited valid time period) generated hash (by Hardware Security Module) is used to sign in or authenticate backend operations. The drawback: like a Username or Password also a Plaintext-Hash is readable in multiple attack vectors and easily can be stolen by expirienced attacker.
+Most cloud services, including Docker and Kubernetes, use “time-based token authentication.” A temporary hash (via a hardware security module) is generated for limited validity.
 
-To use Hash based Keys for Authentication you should consider running your deployment inside hardened / non graphical Linux / Unix Containers or Virtual Mashines.
+For secure hash-based authentication, consider deploying inside hardened, non-graphical Linux/Unix containers or virtual machines.
 
-The following attack vectors exist for Hash based Token Authentication:
+Attack vectors for hash-based token authentication:
 
 ```
-
-* Read by Keylogger installed on client computer
-* Transport SSL Downgrade Attack, read by "Man In The Middle"
-* Transparent SSL Proxy Attack, e.g. @Carrier "Man In The Middle"
-* Chipset or RAM Controller Bugs like Spectre(v2), Retbleed and similar
-* Similar Side-Channel-Attacks
-
+* Keylogger on client computer
+* Transport SSL downgrade (man-in-the-middle)
+* Transparent SSL proxy attacks (carrier MITM)
+* Chipset or RAM bugs like Spectre(v2), Retbleed
+* Other side-channel attacks
 ```
 
 ## Smartcard Auth
 
-Smart-Card / USB-Token Authentication use PKCS 11 / PKCS 15 specifications for Card / Crypto communication. Authentication uses Private- / Public-key mechanism. The Public-key will be put on the side where you want to authenticate to (public visibility does not break security), the Private-Key on card can not be accessed directly, just to perform cryptographic operations with data directly accessible / sent to, e.g encrypt or decrypt data. In theory, if all crypt and decrypt operations are not leaving the card, the mechanism is officially classified secure ![CreditCard](emoji_creditcard_50x50.png).
+Smart-card/USB token authentication uses PKCS 11/15 for crypto communication. Private/public keys are used for session encryption. Direct PKCS 11/15 authentication was rejected in ***kubectl*** due to temporary key derivation—likely a misunderstanding.
 
-Most services including SSH use a session-wide Temporarily generated Key derived from the Private-Key on Smartcard for Session-Encryption / Decryption.
+Otherwise, it’s the most secure mechanism currently used worldwide. Only side-channel attacks, like WiFi encryption, are viable.
 
-Direct pkcs11 / pkcs15 Authentication has been rejected in ***kubectl*** as Authentication Method because of Temp-Key Derivation. I am pretty sure that the implementor(s) misunderstood the conecpt behind Assymetric-Key-Encryption and PKCS 11. It is not possible to just steal the derived key and you are able to log in afterwards without the Smartcard containing your real Private-Key.
-
-Otherwise it is the most secure mechanism currently used worldwide. Because no Plain-Text compare (RSA Prime-numbers for Asymetric Keys calculation is used) for Client on the Server is done (unlike readable / stealable Session-Hashes) the procedure is 100% safe.
-
-Also the 2-way Public / Private Key Negotiation is used in modern Wifi Encryption (Software, WPA3) and is mathematically classified secure. Only Side-Channel Attacks are usable to hack inside (like Wireless-Portal Man In The Middle). We should re-open the Kubectl pkcs11 feature request and insist on implementation, also a Net-HSM pkcs11-proxy using Derived-Keys (AWS like) should be a good idea ![LockWithKey](emoji_closed_lock_with_key_50x50.png).
-
-Attack Vectors:
+Attack vectors:
 
 ```
-
-* Read out Smartcard PIN when using no PIN-PAD
-* Fine-grained Audio Key-Generating-Guessings while near TPM or Smartcard
-* Multiple Side-Channel Attacks
-
+* Reading smartcard PIN without PIN-pad
+* Audio-based key generation guessing near TPM/smartcard
+* Multiple side-channel attacks
 ```
 
 > **Important**
-> Implementing pkcs11 / pkcs15 Smartcard Authentication in Keystone SSO is working but useless.
-> The Keystone Proxy generates readable Browser-Session-Hashes (Cookie or direct) which can be easily stolen by Cross-Site.
+> Implementing PKCS 11/15 smartcard authentication in Keystone SSO works but is useless. The proxy generates readable browser session hashes that can be easily stolen via cross-site scripting.
 
 ## TPM / Biometrics
 
-2 Factor Authentication has become very popular in todays time. Smartcard-Authentication using PIN is officially accepted as true 2 Factor Authentication. Not-using an external PIN-PAD could infact be a serious security risk because the Smartcard-PIN could be sniffed by a keylogger installed on the client computer.
+2-factor authentication is now very popular. Smartcard authentication with PIN is officially “true” 2FA. Not using an external PIN-pad can be risky.
 
-Google or Microsoft Authenticator as Android / Phone-App also seem to offer a **quite** strong Authentication, they use the phones TPM to generate assymetric codes. Additionally an authenticator interface on application side must exist to communicate with the Handy-Authenticator-App (e.g. GitLab) over the internet.
+Google/Microsoft Authenticator apps use phone TPM to generate asymmetric codes. WebAuthn/FIDO is a secure way to integrate biometrics (fingerprint, face recognition) and is now supported in GitLab/OpenStack.
 
-> Hey Granma, have ya eard bout new 0-day Android? :boom: Whaaat did yoou saaay? **0-day Android**. Ah yea my boy, already h4x0r3d Grandpas mobile ![Muscle](emoji_muscle_50x50.png) ...
+> 2FA via Google/Microsoft Authenticator greatly improves login security. Session hash hijacking isn’t possible if 2FA is active.
 
-WebAuthn / FIDO is a quite fresh and secure way to integrate TPM assisted credentials (Biometric Fingerprint, Face Recognition), it has been added into GitLab and OpenStack Keystone quite recently. It uses already deployed TPM credentials. It is not only usable with Microsoft Windows 11 and Edge, also Firefox, Chrome and Opera support it. Use it whereever you can!
-
-> Also 2Factor Authentication by Google / Microsoft Authenticator increases Login Security by far. Simple Session-Hash hijacking is not possible with activated 2Factor Auth!
-
-**Be aware of**
+**Be aware of:**
 
 ```
-
-1. BIOS / UEFI Updates force Key-Regeneration / Must use Fallback-Keys
-2. Fallback Keys also can be stolen when not handled correctly
-3. Real hacking probably does not rely on username / password
-
+1. BIOS/UEFI updates force key regeneration; must use fallback keys
+2. Fallback keys can be stolen if not handled correctly
+3. Real hacking often doesn’t rely on username/password
 ```
 
-## Single Sing On
+## Single Sign-On
 
-Single Sign On is a big security threat in my oppinion. It generates "temporarily" but "alwyays" stealable Plain-Text Hashes.
+Single sign-on is a major security risk. It generates “temporary” but “always” stealable plain-text hashes.
 
-You only get around this by using real 2Factor Authentication (Authenticator App on Mobile) and / or by TPM / Smartcard with drastically reduced Rekeying-Intervals.
+Mitigate risk by using real 2FA (authenticator app) and/or TPM/smartcard with frequent re-keying.
 
-> Currently: please do not use plain Single Sign On without 2Factor Auth: very dangerous!
+> Please don’t use plain SSO without 2FA—it’s very dangerous!
 
 ## Password Vaults
 
-Password Vaults also do not really solve the problems connected to the "Plain-Text-Disaster". The Hash will be transmitted (hopefully encrypted) over the network, afterwards compared (byte for byte) and afterwards if accepted, CPU instruction pointer will step onwards processing API, returning data or restricted web-site content.
+Password vaults don’t really solve the plain-text disaster. Hashes are still transmitted over the network and compared byte-for-byte.
 
-Intel SGX could make a Password Vault much more secure, but be aware of tools like Cheat-Engine (Windows) which is able to compare huge amounts of RAM in very short times to detect simple value changes like player-live-count. This easily could be adapted to Hashes; they always have the same byte length, easy to detect in RAM locations (probably after SGX-decryption as well).
+Intel SGX could make password vaults more secure, but tools like Cheat Engine can scan RAM very quickly for changes.
 
-The only way of 100% secure net-authentication is Asymetric-Key-Exchange where both sides never see the same keys / the complete key is never transmitted via network.
+The only way to achieve 100% secure net authentication is asymmetric key exchange, where both sides never see the entire key, and it’s never transmitted.
 
-> Adressing to all Security-Implementors: the current described concept protects from key stealing on client and server side. A plain-text / recovery hash (even generated by HSM) does not provide protection at all because i can copy and use for authentication as plain-text. This is not the case with Private / Public Key Cryptography ![Key](emoji_key_50x50.png).
+> To all security implementors: The current concept protects client and server keys, but plain-text/recovery hashes (even HSM-generated) don’t provide full protection.
 
 ## Kubernetes Internal
 
-Internally Kubernetes should improve. The **Single-Sign-On** Smartcard-Workaround should be replaced with direct PKCS 11 / PKCS 15 integration inside ***kubectl***.
+Internally, Kubernetes should improve. The SSO smartcard workaround should be replaced by direct PKCS 11/15 integration in ***kubectl***.
 
-> As workaround use 2Factor Authentication with use of Google / Microsoft Authenticator if provided in Kubernetes directly or 3d Party-Tools like GitLab.
+> As a workaround, use 2FA via Google/Microsoft Authenticator if provided, or third-party tools like GitLab.
 
 # Hybrid Cloud / IPv6
 
-Currently Kubernetes 1.20 supports IPv4 / IPv6 dual stack. Common Kubernetes Cloud-Provider do not provide IPv6 support. I will test this locally with Minicube, especially if IPv6 disabled this crappy internal NAT and will inform in a later post. Pray to god: IPv6 NAT would be **the horror**.
+Kubernetes 1.20 supports IPv4/IPv6 dual stack, but most cloud providers don’t offer IPv6 support. I plan to test this locally with Minikube. Disabling IPv6 can cause issues.
 
-Regarding Hybrid Cloud infrastructure: i recommend a hybrid-infrastructural setup (inhouse-datacenter[s] connected to cloud-datacenter[s]) especially for Enterprise / Carrier Grade customer. On the long run, careful selected and placed at the correct place (on-premise / datacenter) will save a lot of money, reduce IP-traffic and implementing effort ![AlarmClock](emoji_alarm_50x50.png).
+For hybrid cloud infrastructure, I recommend a setup with in-house and cloud datacenters, especially for enterprise/carrier-grade customers.
 
-The Redhat OpenShift Platform in combination with consulting and using certified Kubernetes Applications will help you setting up your Kubernetes Hybrid Infrastructure in record time.
+Red Hat OpenShift, combined with consulting and certified Kubernetes apps, can help set up a hybrid infrastructure quickly.
 
 # Performance
 
-I did not really measure performance of multiple ported Web-Applications in detail. Also i do not really administer very busy sites. I am the IT-Architect / Coder / Dev part of DevOps, not the Admin part.
+I haven’t measured the performance of multiple web apps in detail, and I’m not the admin for large sites. As IT architect/coder/DevOps, I tested Python backends and PostgreSQL 14 databases with default TLS and self-signed certificates. Performance and response times look excellent.
 
-I tested some of our Web-Applications (Python-Backend-Server, PostgreSQL 14 Database) with Default TLS and Self-Signed Client-Certificates. The overall performance / response times look very good. The applications do not really rely on a rock-solid scaling-model, so i did not really emphazise.
+Kubernetes infrastructure does not automatically scale your application infinitely. To achieve that, you need to implement and configure other components with horizontal scaling (e.g., PostgreSQL, Redis).
 
-Kubernetes as infrastructure does not automatically scale your Application endlessly. To achieve such a behaviour you also must implement and configure other components with horizontal scaling, e.g. PostgreSQL using binary replication. And still: no production-ready read-scaling. Your Application is self-responsible for handling the read load-balancing, or again, use additional 3d-party software. Also an additional write-queue mechnism should be thought of or using write-scalable backends if you plan a high-loaded platform. ![CheckeredFlag](emoji_checkered_flag_50x50.png) ![CheckeredFlag](emoji_checkered_flag_50x50.png) 
+**My Opinion**
 
-**Oppinion**
+![cross](/emoji_monorail_50x50.png) Modern and fast travel.
 
-![cross](emoji_monorail_50x50.png) Traveling modern and fast.
-
-> Auto-scale feature is rock-solid, giving out 2 Love-Points ![LoveLetter](emoji_love_letter_50x50.png) ![LoveLetter](emoji_love_letter_50x50.png) 
+> The auto-scale feature is rock-solid. Two love points! ![LoveLetter](/emoji_love_letter_50x50.png)
 
 # Ported Applications
 
-Many OpenSource products ported (modified) to run on Kubernetes Infrastructure exist:
+Many open source products have been ported to run on Kubernetes infrastructure:
 
 ```
-
 * NGINX (Ingress-NGINX)
-* Selenium Browser Automation Framework
+* Selenium browser automation framework
 * Kubegres (PostgreSQL)
-* React / Node.JS
+* React / Node.js
 * Elasticsearch
-* Roundcube Webmail
+* Roundcube webmail
 * Postfix
 * Apache Kafka
-* GitLab 
-
+* GitLab
 ```
 
 # Pro / Contra Matrix
 
-The following matrix shows a summary of Positive / Negative aspects.
+The following matrix summarizes positive and negative aspects.
 
-| Feature                                                     | Type                  | Weight in % | Why                                  |
-|-------------------------------------------------------------|-----------------------|-------------|
-| Centralized Metrics / Monitoring                            | ![cross](icons8-cross-50.png) Negative                     | 80%           | Not working as expected / not working at all | 
-| Object Relation / Interaction                               | ![cross](icons8-cross-50.png) Negative                     | 50%           | Sometimes bad relations                      |
-| Network Abstraction                                         | ![cross](icons8-cross-50.png) Negative                     | 50%           | Internal NAT where not needed                |
-| Non-modern Security / Authentication Implementations        | ![cross](icons8-cross-50.png) Negative                     | 30%           | No direct PKCS 11 / PKCS 15 implementation   |
-| Declarative Object Definition                               | ![cross](icons8-ok-50.png) Positive                        | 90%           | In general very good abstraction, seldom: weired cross-references |
-| Autoscaling Applications On Demand                          | ![cross](icons8-ok-50.png) Positive                       | 90%            | Presumed deep insider knowledge              | 
-| Easy IP Assignment / DNS Integration                        | ![cross](icons8-ok-50.png) Positive                       | 90%            | Very good conecept, but network implementation sometimes bad |
-| Service Definition / Ingress                                | ![cross](icons8-ok-50.png) Positive                       | 50%            | Theoretical excellent, declarative templates sometimes misleading |
-| Security / Rebuild Cluster Lightning-fast                   | ![cross](icons8-ok-50.png) Positive                       | 80%            | Very good, but sometimes buggy in seldom circumstances |
-| DevOps / Role Based Access Sytem                            | ![cross](icons8-ok-50.png) Positive                       | 70%            | Sometimes time consuming / complex           |
-| Drastically increasing Productivity / Development Efficiency| ![cross](icons8-ok-50.png) Positive                       | 90%            | If handled in the correct way                |
-| Rolling Updates with 0% Service Outage                      | ![cross](icons8-ok-50.png) Positive                       | 100%           | Really nice                                  |
-| Existing API Abstraction-Layer for Integrating external Apps| ![cross](icons8-ok-50.png) Positive                       | 80%            | Kubernetes exclusive, no one else provides such a feature |
-
+| Feature                                                      | Type           | Weight (%) | Why                                                                  |
+|--------------------------------------------------------------|----------------|------------|----------------------------------------------------------------------|
+| Centralized Metrics / Monitoring                             | ❌ Negative     | 80         | Not working as expected / not working at all                         |
+| Object Relation / Interaction                                | ❌ Negative     | 50         | Sometimes relationships are problematic                              |
+| Network Abstraction                                          | ❌ Negative     | 50         | Internal NAT used where not needed                                   |
+| Non-modern Security / Authentication Implementations         | ❌ Negative     | 30         | No direct PKCS 11/15 implementation                                  |
+| Declarative Object Definition                                | ✅ Positive     | 90         | Generally excellent abstraction; occasionally weird cross-references |
+| Autoscaling Applications On Demand                           | ✅ Positive     | 90         | Assumes deep insider knowledge                                       |
+| Easy IP Assignment / DNS Integration                         | ✅ Positive     | 90         | Excellent concept, though network implementation can be problematic  |
+| Service Definition / Ingress                                 | ✅ Positive     | 50         | Theoretically excellent; templates sometimes misleading              |
+| Security / Lightning-fast Cluster Rebuild                    | ✅ Positive     | 80         | Very good, but occasionally buggy                                    |
+| DevOps / Role-Based Access System                            | ✅ Positive     | 70         | Sometimes time-consuming or complex                                  |
+| Dramatically Increased Productivity / Development Efficiency | ✅ Positive     | 90         | If used correctly                                                    |
+| Rolling Updates with Zero Service Outage                     | ✅ Positive     | 100        | Truly excellent                                                      |
+| Existing API Abstraction Layer for External Apps             | ✅ Positive     | 80         | Unique to Kubernetes; no other product offers this                   |
