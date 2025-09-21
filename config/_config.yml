@@ -1,0 +1,44 @@
+highlighter: rouge
+
+markdown: kramdown
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts: 
+    css_class: 'highlight'
+  math_engine: mathjax
+
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-feed
+
+paginate: 7
+paginate_path: "page:num"
+layout: post
+permalink: /:categories/:title
+excerpt_separator: "[-----]"
+
+url: https://www.der-it-pruefer.de
+name: it-prüfer
+title: Der IT-Prüfer
+shout:
+  - A critical IT blog
+  - for experts.
+description: "Der IT-Prüfer, a critical IT-Blog for experts." # Required
+
+disqus:
+  comments: false
+  shortname:
+
+google_analytics:
+  id: "G-XQXP7DHZNB"
+
+collections:
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "post"

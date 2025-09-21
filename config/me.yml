@@ -1,0 +1,32 @@
+# These data will be shown in /about page and every page footer
+# Replace these with your own personal info
+
+name: "Claus Prüfer"
+job: "CTO / Developer"
+hi: "Welcome to my IT-Blog!"
+avatar_img: "/assets/img/me.png" # path to your avatar
+intro:
+  - "Im Laufe meiner Karriere konnte ich einschlägige Erfahrung in der Durchführung zahlreicher Projekte von klein über Enterprise, bis hin zu Carrier-grade miterleben und mitgestalten."
+  - "Von den Anfängen der Agilen Entwicklungs-Theorie, über Virtualisierungs-, Loadbalancer-Technologien und Software Defined Networking bis hin zu Google Kubernetes habe ich die IT-Landschaft seit dem Jahr 2000 detailliert unter die Lupe genommen."
+  - "'Nomen est Omen', mein Nachname 'Prüfer' hat mich schon oft in prikäre Situationen gebracht: Prüfen liegt mir im Blut; es ist extraorbitant schwierig für mich, Themen keiner kritischen Analyse zu unterziehen."
+  - "Aus diesem Grund habe ich mich dazu entschieden, ab dem heutigen Datum permanent aktuelle IT Themen durchleuchtet vom 'IT-Prüfer' auf 'Der-IT-Prüfer.de' bereitzustellen und Euch zu brandaktuellen Themen meine Erfahrungen mitzuteilen."
+  -  "Have fun reading!"
+skills:
+  - name: "Programming"
+    icon-class: "fa fa-terminal"
+    list: ["Python", "JavaScript", "C++", "Shell", "SQL", "XML", "JSON"]
+  - name: "Framework"
+    icon-class: "fa fa-th-list"
+    list: ["x0 (Cross-Objects)", "Google Kubernetes"]
+  - name: "Tools"
+    icon-class: "fa fa-cogs"
+    list: ["Linux", "Docker", "Git", "libvirt", "Latex"]
+
+display_name: "CLAUS PRÜFER"
+contact:
+  - {name: "Mobile", icon-class: "fa fa-phone-square", text: "+49 (30) 33 60 7177", link: "tel: 0493033607177"}
+  - {name: "Email", icon-class: "fa fa-envelope", text: "info@der-it-pruefer.de", link: "mailto: info@der-it-pruefer.de"}
+  - {name: "Internet", icon-class: "fa fa-link", text: "http://www.webcodex.de", link: "http://www.webcodex.de"}
+social:
+  - {name: "GitHub", icon-class: "fa fa-github-square", text: "https://github.com/clauspruefer", link: "https://github.com/clauspruefer"}
+  - {name: "Xing", icon-class: "fa fa-xing", text: "https://www.xing.com/profile/Claus_Pruefer", link: "https://www.xing.com/profile/Claus_Pruefer"}
