@@ -5,91 +5,65 @@ tags: [services, telekom, german]
 
 # Post Meta-Data
 
-| Datum      | Sprache                  | Autor                             | Beschreibung                                          |
-|------------|--------------------------|-----------------------------------|-------------------------------------------------------|
-| 08.07.2023 | Deutsch                  | Prüfer, Claus (Chief-Prüfer)      | Digitales Schutzpaket Business der Deutschen Telekom  |
+| Datum      | Sprache  | Autor                        | Beschreibung                                          |
+|------------|----------|-----------------------------|-------------------------------------------------------|
+| 08.07.2023 | Deutsch  | Prüfer, Claus (Chief-Prüfer)| Digitales Schutzpaket Business der Deutschen Telekom  |
 
 # Deutsche Telekom
 
-Die Deutsche Telekom. Wenn es um Basis-Infrastruktur geht: Engineering wie es sein sollte.
-Begibt man sich in die höheren IP-Layer: Chaos hoch 10. Zusätzliche Services der Telekom: "Lieber die Finger davon lassen."
+Die Deutsche Telekom – wenn es um Basis-Infrastruktur geht, ist das Engineering vorbildlich. Doch je höher man sich auf den IP-Layern bewegt, desto chaotischer wird es. Zusätzliche Services der Telekom? Mein Tipp: Finger weg!
 
 ## Digitales Schutzpaket Business
 
-So hat die nette Telekom es doch tatsächlich geschafft, mir 3x Ihr neues Produkt "Digitales Schutzpaket Business" zu
-verkaufen. "Wie kommt denn so was?", "Und warum denn gleich drei mal?".
+Die freundliche Telekom hat es tatsächlich geschafft, mir ihr neues Produkt "Digitales Schutzpaket Business" gleich dreimal zu verkaufen. Wie das passieren konnte? Und wieso gleich dreimal?
 
-## Produkt Definition
+## Produktdefinition
 
-Hier wird das Produkt "Digitales Schutzpaket Business" konkret definiert:
-[Telekom Digitales Schutzpaket - Produktdefinition](https://geschaeftskunden.telekom.de/digitale-loesungen/cyber-security/security-consulting/digital-schutzpaket-business).
+Hier wird das Produkt "Digitales Schutzpaket Business" konkret beschrieben:
+[Telekom Digitales Schutzpaket – Produktdefinition](https://geschaeftskunden.telekom.de/digitale-loesungen/cyber-security/security-consulting/digital-schutzpaket-business).
 
-## Divergierende Facts
+## Divergierende Fakten
 
-Na, angepriesen wurde mir das Produkt telefonisch bei der Adress-Änderung des Zweit-DSL-Anschlusses bei meinen Eltern auf
-meine Firmen-Adresse. Es wurde mir hierbei suggeriert: IP Pakete werden "transparent" im Telekom-Netz überwacht. Bei bekannten
-Hacker-Angriffen werden die Pakete geblockt und erreichen das Kunden-Netz somit erst gar nicht (Firewall im Telekom Netz).
-Weitergehend wurde sogar noch behauptet, dass durch definierte SLA (Wartungsverträge) bei Angriffen Schadensersatz-Anspruch
-auf Kunden-Seite bestünde.
+Das Produkt wurde mir telefonisch bei einer Adressänderung des Zweit-DSL-Anschlusses meiner Eltern auf meine Firmenadresse angepriesen. Man suggerierte mir: IP-Pakete würden „transparent“ im Telekom-Netz überwacht. Bei bekannten Hackerangriffen würden die Pakete geblockt und kämen gar nicht erst ins Kundennetz (Firewall im Telekom-Netz). Es wurde sogar behauptet, dass durch definierte SLA (Wartungsverträge) im Angriffsfall Anspruch auf Schadensersatz bestünde.
 
-"Oha, endich mal ein sinnvolles Telekom-Produkt!", dachte ich mir. "Das ist für den Preis von 29€ monatlich aber rischtisch geil!"
-Das Produkt werden wir doch glatt für meine beiden Geschäfts-Anschlüsse buchen; sogar 3 Monats-Beträge kostenfrei.
+„Oha, endlich mal ein sinnvolles Telekom-Produkt!“, dachte ich. „Für 29 € monatlich klingt das doch richtig attraktiv!“ Also habe ich das Produkt gleich für meine beiden Geschäftsanschlüsse gebucht – sogar drei Monate kostenfrei.
 
-## Produkt Details
+## Produktdetails
 
-Nun ja, die Telekom schickt nun jedem Vertrags-Teilnehmer noch einmal einen Produkt-Flyer zu. Hier schon einmal der erste
-Fauxpas. Da ich zwei Produkte abgeschlossen habe, bekomme ich auch zwei Flyer zugesendet. Diese sind doch tatsächlich
-unterschiedlich und enthalten abweichende Informationen im Marketing Teil.
+Die Telekom schickt jedem Vertragsteilnehmer einen Produktflyer zu. Erster Fauxpas: Da ich zwei Produkte abgeschlossen habe, bekomme ich auch zwei Flyer – und die sind tatsächlich unterschiedlich und enthalten abweichende Marketinginformationen.
 
-Gefickt eingeschädelt. Der Chinese aus dem ersten Flyer wurde durch einen mittelalten (graubärtigen), fast nicht alkoholisierten
-Mann in seinem Architekten-Büro ersetzt, um keinen Verdacht auf Zusammenarbeit mit Auslands-Geheimsiensten aufkommen zu lassen.
+Gefickt eingeschädelt: Der Chinese aus dem ersten Flyer wurde im zweiten durch einen mittelalten (graubärtigen), fast nüchternen Herrn in seinem Architekten-Büro ersetzt. Offenbar, um keinen Verdacht auf Kooperation mit ausländischen Geheimdiensten aufkommen zu lassen.
 
-Zum Glück wird im zweiten Flyer ein "Zusatzangebot" erwähnt, welches eigentlich exakt die Features beschreibt, die mir anfänglich
-für das Schutzpaket angepriesen wurden. Schwellender Hals, betrogen fühl!
+Zum Glück wird im zweiten Flyer ein „Zusatzangebot“ erwähnt, das eigentlich genau die Features beschreibt, die mir ursprünglich für das Schutzpaket angepriesen wurden. Da schwellen Puls und Hals – Betrugsgefühle machen sich breit!
 
-## Keiner weiß bescheid
+## Keiner weiß Bescheid
 
-Ich möchte die Situation klären, rufe bei 3 unterschiedlichen Telekom-Hotlines an. Keiner kann mir weiterhelfen. Mein konkretes
-Anliegen: "Der gebuchte Tarif Digitales Schutzpaket passt nicht zu meinen Bedürfnissen, dagegen der Tarif Internet Protect Pro aus
-einer der mir zugesendeten Produkt-Bröschüren eher."
+Um Klarheit zu bekommen, rufe ich bei drei unterschiedlichen Telekom-Hotlines an. Niemand kann mir weiterhelfen. Mein konkretes Anliegen: „Der gebuchte Tarif Digitales Schutzpaket passt nicht zu meinen Bedürfnissen, aber der Tarif Internet Protect Pro aus einer der zugesandten Broschüren schon eher.“
 
-Ich werde von Hotline zu Hotline weiter verbunden; SMS Nachrichten trudeln ein, ob mein Anliegen geklärt werden konnte. Ja Kruzifix
-noch mal, ist das denn so schwer an Produkt-Informationen zu gelangen? Das einzige was ich wissen möchte: "Passt der Tarif
-Internet Protect Pro zu meinen Bedürfnissen? Ist das jetzt auch exakt so, wie ich mir das vorstelle? Es ist kein Virenscanner, der
-lokal auf einem meiner Computer installiert werden muss?".
+Ich werde von Hotline zu Hotline weiterverbunden. SMS trudeln ein, ob mein Anliegen geklärt werden konnte. Ja Kruzifix nochmal, kann es wirklich so schwer sein, an Produktinformationen zu gelangen? Alles, was ich wissen möchte: „Passt der Tarif Internet Protect Pro zu meinen Anforderungen? Ist das auch exakt das, was ich mir vorstelle? Es soll kein Virenscanner sein, der lokal auf meinem Computer installiert werden muss!“
 
 ## Unlauterer Wettbewerb?
 
-In so einem Fall könnte man dann sogar von unlauterem Wettbewerb ausgehen. Ich als Kunde erwarte, dass die Informationen des
-Verkäufers auch mit denen des verkauften Produkts übereinstimmen. Erst nach Zusendung des Produkt-Flyers wird klar: Die Produkt-
-Features entsprechen überhaupt nicht denen, die am Telefon angepriesen wurden. Dies muss aber nach Deutschem Recht einhundert
-prozentig der Fall sein.
+In so einem Fall könnte man durchaus von unlauterem Wettbewerb sprechen. Als Kunde erwarte ich, dass die Informationen des Verkäufers mit denen des Produkts übereinstimmen. Erst nach Zusendung des Flyers wird klar: Die Produktfeatures entsprechen überhaupt nicht dem, was am Telefon versprochen wurde. Laut deutschem Recht muss dies jedoch hundertprozentig der Fall sein.
 
-Auch die Meinung des Chip Magazins zum Produkt Digitales Schutzpaket: "Sehr gut!". Hm, ist das etwa Vitamin B? Kennt der
-Telekom-Produkt-Designer wohl zufälligerweise den Chef des Chip-Magazins? "Jaja, so geht das in diesen Kreisen.", kann man hier
-manchmal doch schon vermuten.
+Auch die Meinung des Chip Magazins zum Produkt Digitales Schutzpaket: „Sehr gut!“ Hm, etwa Vitamin B? Kennt der Telekom-Produktdesigner wohl zufällig den Chefredakteur des Chip Magazins? „Jaja, so läuft das in diesen Kreisen“, könnte man vermuten.
 
 ## Abzocke?
 
 Und es geht noch eine Stufe höher!
 
-Bei einem standard Support-Anruf meinerseits bringt mich ein Telekom-Mitarbeiter sogar dazu, erneut 3 Monate des Tarifs
-Digitales Schutzpaket "einzusparen". Dass ein zusätzlicher Vertrag abgeschlossen wird, sagt dieser mir aber nicht.
+Bei einem Standard-Support-Anruf bringt mich ein Telekom-Mitarbeiter sogar dazu, erneut drei Monate des Tarifs Digitales Schutzpaket „einzusparen“. Dass dabei ein zusätzlicher Vertrag abgeschlossen wird, verschweigt er mir aber.
 
-Es trudelt der dritte Telekom-Produkt-Flyer per Post ein.
+Es trudelt der dritte Telekom-Produktflyer per Post ein.
 
 ## Masche?
 
-Nein, ernsthaft: falls dies eine Masche sein sollte, muss der Kunde (in diesem Falle ich) sich um die Stornierung des Produkts
-kümmern. Liest man sich die zugesendeten Flyer nicht wirklich richtig durch, kann es schnell passieren, dass dies in Vergessenheit
-gerät, man ohne Mullen und Knullen die 30€ monatlich berappt und von korrekt geleisteten Dienstleistungen der Telekom ausgeht.
+Falls das tatsächlich eine Masche sein sollte, bleibt es am Kunden hängen (in diesem Fall an mir), das Produkt zu stornieren. Liest man die zugesandten Flyer nicht genau, kann das schnell in Vergessenheit geraten, und man zahlt ohne Murren die 30 € monatlich, in der Annahme, korrekte Dienstleistungen zu erhalten.
 
-Wenn meine Mutter nicht gewesen wärt, die mich darauf hinwies, meinen Anspruch auf "ID-Alarm" in Anspruch zu nehmen, wäre ich
-auch nicht aufgewacht. "Häää what? ID-Alarm? Wattn ditte?" "Achso, die Telekomiker, da kann ja wat überhaupt nüscht stimmen!"
+Wäre meine Mutter nicht gewesen, die mich auf meinen Anspruch auf „ID-Alarm“ hingewiesen hat, hätte ich gar nicht nachgeforscht. „Häää, was? ID-Alarm? Was ist das denn?“ Ach ja, die Telekomiker – da kann doch etwas überhaupt nicht stimmen!
 
-Hat meine arme Mum erst mal den Telekom Shit-Storm abgekriegt.
+Am Ende hat meine arme Mum erst mal den Telekom-Shitstorm abbekommen.
 
 ## Kontakt
 
-Falls Ihr ähnliche Erfahrung mit Produkten der Telekom gesammelt habt: schreibt an [info@der-it-pruefer.de](info@der-it-pruefer.de)
-und wir werden der Sache auf den Grund gehen, versprochen!
+Falls Ihr ähnliche Erfahrungen mit Telekom-Produkten gemacht habt: Schreibt an [info@der-it-pruefer.de](info@der-it-pruefer.de)!
