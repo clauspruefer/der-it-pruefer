@@ -13,13 +13,11 @@ tags: [services, telekom, german]
 
 Die Deutsche Telekom. Wenn es um Basis-Infrastruktur geht: Engineering wie es sein sollte.
 Begibt man sich in die höheren IP-Layer: Chaos hoch 10. Zusätzliche Services der Telekom: "Lieber die Finger davon lassen."
-Mit dieser Einstellung bin ich die letzten Jahre mit meiner "Small-Business" Unternehmung eigentlich ganz gut gefahren.
-Passende Miet-Angebote wurden dann bei Konkurrenz-Unternehmen gemietet: "Connecting your world"-less.
 
 ## Digitales Schutzpaket Business
 
 So hat die nette Telekom es doch tatsächlich geschafft, mir 3x Ihr neues Produkt "Digitales Schutzpaket Business" zu
-verkaufen. "Wie kommt denn so was?", "Einem alten Hasen wie dir so einen Schmuh anzudrehen?"
+verkaufen. "Wie kommt denn so was?", "Und warum denn gleich drei mal?".
 
 ## Produkt Definition
 
@@ -80,22 +78,6 @@ Digitales Schutzpaket "einzusparen". Dass ein zusätzlicher Vertrag abgeschlosse
 
 Es trudelt der dritte Telekom-Produkt-Flyer per Post ein.
 
-## Vergangenheit
-
-Das Gefühl kann man exakt mit dem beim Kauf eines mir suggerierten 14.400 Baud Modems bei Völkner vergleichen.
-Dit war nämlich gar nüscht dit was druff stand: dit war nämlich in Wirklichkeit ein 9.600 Baud Modem mit Hardware-Kompression.
-
-Da hab ick mir ooch jefühlt wien Depp. Umtausch, sei es unter Zuhilfenahme schwerer Waffen! Hat dann ooch jeklappt. Modem zurück,
-Geld wieder bei mir. Dann doch nen jescheites US Robotics jekooft: und ab geht die Luzi.
-
-## Lokaler Zugriff auf die Netzwerk-Infrastruktur
-
-Dass man den "Spezialisten" der Telekom Zugriff auf seine Rechner gewähren muss, wird ebenso in keinster Weise erwähnt, erst
-der Produkt-Flyer klärt auf.
-
-Dann braucht der Chinese erst gar nicht mehr die Juniper-Hardware der Amis hacken; geschickt geschickt. Deswegen die
-China-Freundlichkeit; und dann noch zusätzlich Provision abkassieren. Jaja, so läuft der Hase liebe Telekom, ham wer se durchschaut.
-
 ## Masche?
 
 Nein, ernsthaft: falls dies eine Masche sein sollte, muss der Kunde (in diesem Falle ich) sich um die Stornierung des Produkts
@@ -105,15 +87,7 @@ gerät, man ohne Mullen und Knullen die 30€ monatlich berappt und von korrekt 
 Wenn meine Mutter nicht gewesen wärt, die mich darauf hinwies, meinen Anspruch auf "ID-Alarm" in Anspruch zu nehmen, wäre ich
 auch nicht aufgewacht. "Häää what? ID-Alarm? Wattn ditte?" "Achso, die Telekomiker, da kann ja wat überhaupt nüscht stimmen!"
 
-Hat meine arme Mum erst mal den Telekom Shit-Storm abgekriegt. Dafür wäre schon Schadens-Ersatz in 4 stelliger Höhe Minimum
-angebracht, liebe geehrte Telekom! So geht das nicht!
-
-## Kompetenz
-
-Wurden zu diesem Produkt konkret qualifizierte Support-Mitarbeiter eingestellt, oder ist das Ganze eine Idee eines zugekoksten
-Produktmanagers, der die prozentuale Support-Mitarbeiter-Auslastung der Telekom ins Unermessliche optimieren möchte?
-
-Regelmäßige, gezielte Prüf-Anrufe wahrhafter Expreten könnten hier Abhilfe schaffen: ein Fall für Böhmermann!
+Hat meine arme Mum erst mal den Telekom Shit-Storm abgekriegt.
 
 ## Kontakt
 
