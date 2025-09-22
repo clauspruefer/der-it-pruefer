@@ -7,148 +7,137 @@ tags: [programming, paradigm, german]
 
 | Datum      | Sprache                  | Autor                             | Beschreibung                                          |
 |------------|--------------------------|-----------------------------------|-------------------------------------------------------|
-| 11.12.2023 | Deutsch                  | Prüfer, Claus (Chief-Prüfer)      | Coding Paradigm - Die wichtigsten Grundlagen der Software-Entwicklung |
+| 11.12.2023 | Deutsch                  | Prüfer, Claus (Chief-Prüfer)      | Coding Paradigm – Die wichtigsten Grundlagen der Softwareentwicklung |
 
 # Grundregeln der Programmierung
 
-Schaut man sich Source-Code der heutigen Generation an, dann kann es passieren: man möchte die Hände über dem Kopf zusammenschlagen. Oft wird nicht auf eine einheiltiche Struktur, generische Programmierweise oder Sicherheit Wert gelegt. In über 50% der Fälle: **Spaghetti-Code**.
+Betrachtet man den Quellcode aktueller Softwaregenerationen, so kann es einem mitunter die Hände über dem Kopf zusammenschlagen lassen. Häufig mangelt es an einer einheitlichen Struktur, generischen Programmieransätzen sowie einer konsequenten und nachhaltigen Methodik.
 
-Häufig möchte man zügig zu Ergebnissen gelangen, der Druck der Projektleitung ist groß oder der Freund / die Freundin nervt. Man sollte sich hier nicht beirren lassen und versuchen, seine eigenhändig aufgestellten Regeln zu verfechten!
+Oftmals herrscht Zeitdruck, das Projektmanagement fordert schnelle Ergebnisse oder private Verpflichtungen beeinträchtigen die Konzentration. Dennoch sollte man sich nicht beirren lassen und bestrebt sein, eine eigenständige, durchdachte Arbeitsweise zu wahren.
 
-Aber: "100% do it yourself" ist auch keine Lösung. Ein überlegter Mittelweg (Aristoteles Weg der goldenen Mitte) führt oft zu brauchbaren Ergebnissen. Meine eigene Meinung: Über 80% aktueller Software-Produkte sollten neu geschrieben werden.
+Gleichzeitig ist „100% Do-it-yourself“ keineswegs zielführend. Ein wohlüberlegter Mittelweg – gemäß Aristoteles' Lehre von der goldenen Mitte – führt häufig zu praxistauglichen Ergebnissen. Nach meiner eigenen Einschätzung: Über 80 % aktueller Softwareprojekte profitieren von einer ausgewogenen Balance zwischen Eigenleistung und der Nutzung etablierter Lösungen.
 
-> Warnung! Neu-Schreiben von Software kann zu Agressionen, Zeit- / Raumverlust und anderen unvorhersehbaren Neben-Effekten führen.
+> Warnung! Das Neuschreiben von Software kann zu Aggressionen, Zeit- und Ressourcenverlust sowie weiteren unvorhersehbaren Nebenwirkungen führen.
 
-## The DNS Disaster
+## Das DNS-Desaster
 
-Daniel Julius Bernstein bot $1000 Preisgeld für Denjenigen, der eine Sicherheitslücke in seiner Software djbdns, die weltweit bis zum Jahr 2008 ohne gefundene Schwachstelle betrieben wurde.
+Daniel Julius Bernstein setzte ein Preisgeld von 1.000 US-Dollar für denjenigen aus, der eine Sicherheitslücke in seiner Software djbdns findet – einer Software, die weltweit bis zum Jahr 2008 ohne nachgewiesene Schwachstelle betrieben wurde.
 
-Da die vom Internet Consortium geschriebene DNS-Software "Bind" (CNS und ANS) permanent mit Sicherheits-Lücken gespickt war, entschied er sich, djbdns zu programmieren, um das Internet global sicherer zu gestalten.
+Da die vom Internet Consortium entwickelte DNS-Software „Bind“ (CNS und ANS) regelmäßig mit Sicherheitslücken behaftet war, entschied sich Bernstein, djbdns zu entwickeln, um die Sicherheit des Internets maßgeblich zu verbessern.
 
-> Bis heute wurde kein Remote-Code Exploit gefunden, über welches man sich in den Server hacken konnte.
-> Lediglich eine grundlegende DNS-Protokoll-Schwachstelle erlaubte es DNS-Cache-Poisioning zu ermöglichen.
+> Bis heute wurde kein Remote-Code-Exploit bekannt, der einen erfolgreichen Angriff auf djbdns ermöglicht hätte.
+> Lediglich eine grundlegende Schwachstelle im DNS-Protokoll erlaubte DNS-Cache-Poisoning.
 
-## Die 10 Grundregeln
+## Die zehn Grundregeln
 
-Die wichtigsten 10 Regeln der Programmerung lauten:
+Die wichtigsten zehn Regeln der Programmierung lauten:
 
 ```
-
 * KISS: Keep it simple, stupid!
-* Versuche vorhandene, durchdachte, gut getestete Libraries zu verwenden
-* Benutze git als Versionskontroll-Software
-* Benutze Agile Kolaborations-Tools / DevOps, (Kubernetes / GitLab / Stackfield)
-* Versuche RFP (Request For Proposal) zu entwerfen und erst danach zu entwickeln
-* Verwende gut strukturierte Daten-Modelle für deine API (XML / JSON)
-* Entwickle an der "Richtigen Stelle"
-* Schreibe ausreichende Tests (Unit und Integration)
-* Dokumentiere das Projekt ausreichend
-* Gehe den Weg der Goldenen Mitte (Aristoteles)
-
+* Verwende bestehende, durchdachte und umfassend getestete Bibliotheken.
+* Nutze git als Versionskontrollsystem.
+* Setze agile Kollaborations- und DevOps-Tools ein (z. B. Kubernetes, GitLab, Stackfield).
+* Erstelle zunächst ein Request for Proposal (RFP) und beginne erst danach mit der Entwicklung.
+* Verwende gut strukturierte Datenmodelle für deine API (z. B. XML, JSON).
+* Entwickle stets am geeigneten Punkt des Softwareprozesses.
+* Schreibe ausreichend Tests (Unit- und Integrationstests).
+* Dokumentiere das Projekt umfassend und verständlich.
+* Wähle den Weg der goldenen Mitte (Aristoteles).
 ```
 
 ## Einhaltung der Regeln
 
-Das Känguru aus der fabulösen Reihe "Die Känguru Chroniken" (Marc Uwe Kling) stellt interessante Wahrheiten im Umfeld seines Boxclubs auf. Die wichtigsten Lektionen kann man getrost auch auf die IT-Welt / Programmierung adaptieren:
+Das Känguru aus Marc-Uwe Klings „Die Känguru-Chroniken“ formuliert im Umfeld seines Boxclubs bemerkenswerte Wahrheiten, die sich auch auf die IT übertragen lassen. Die wichtigsten Lektionen sind:
 
 ```
-
 1. Lektion: Wir wollen nicht programmieren. Wir müssen!
 2. Lektion: Mitdenken!
-
 ```
 
-Aber: Die Einhaltung von Regeln im Real-Live kann sich schwierig gestalten. In größeren Projekten (speziell Banken, Versicherungen und Service-Provider) sollte man ein Politik-Studium absolviert haben und trinkfest sein, bevor man sich in die Gefilde der Upper-Class begibt.
+Die konsequente Einhaltung von Regeln in der Praxis gestaltet sich jedoch oft schwierig. Insbesondere in großen Projekten – vor allem im Banken-, Versicherungs- und Serviceprovider-Umfeld – wäre ein abgeschlossenes Politikstudium von Vorteil.
 
-Eine inkorrekt gehandhabte Kommunikation oder fehlendes Verhandlungsgeschick führt schnell zu Frustration. Oft geht es in Projekten **nicht um die eigentliche Sache**. Politische Entscheidungen, die kontraproduktiv erscheinen sind an der Tagesordnung.
+Eine unzureichend geführte Kommunikation oder mangelndes Verhandlungsgeschick führen rasch zu Frustration. Nicht selten geht es in Projekten **nicht um die eigentliche Sache**. Politische Entscheidungen, die auf persönlichen Befindlichkeiten oder firmeninternen Hierarchien basieren, bestimmen oft den Verlauf.
 
-Auch hier zeigt sich häufig: habe ich mich an meine selbst aufgestellten Regeln gehalten? Eine ausgeklügelte Argumentation kann auch dem härtesten Projektleiter / Chef klarmachen, dass dies durch die Einhaltung der Regeln *kurzfristig* zwar zu höheren Aufwänden, *langfristig* aber zu großen Einsparungen führen kann (Details folgen).
+Auch hier zeigt sich: Habe ich mich an meine selbstgesetzten Regeln gehalten? Eine fundierte Argumentation kann selbst den kritischsten Projektleiter überzeugen, sofern sie nachvollziehbar und sachlich begründet ist.
 
 # Generische Programmierung
 
-Ebenso wichtig für eine saubere Code-Base, speziell größere Projekte: sollten von Grund auf generisch angegangen werden. Den Grad der Abstrahierung sollte man sich im Vorfeld (Planung) des Projektes genau überlegen.
+Für eine saubere Code-Basis ist es insbesondere bei größeren Projekten unerlässlich, von Beginn an generische Ansätze zu verfolgen. Der Grad der Abstraktion sollte bereits in der Planungsphase wohlüberlegt festgelegt werden.
 
-## Objektorientierte Programmierung / OOP
+## Objektorientierte Programmierung (OOP)
 
-Projekte ohne Objektorientierte Basis umzusetzen, fällt meiner Meinung nach unter *Grobe Fahrlässigkeit*. Die genauen Gründe hierfür werden unter den nachfolgenden Punkten betrachtet.
+Projekte ohne objektorientierte Grundlage umzusetzen, stellt meines Erachtens eine grobe Fahrlässigkeit dar. Die genauen Gründe hierfür werden im Folgenden erläutert.
 
-> Do not do it like Java, its hot like Lava. Uhhm, schnell den DJ-controller beiseite packen; auf die Programmier-Ebene umschalten.
-> For real: Java-Abstrahierung == Subclassing to its extreme ... Schade, dass dadurch Basis-Faetures wie "Real-Threading" überschattet / in Missgunst gezogen werden.
+## Programmiersprache und Umgebung
 
-## Programmiersprache / Environment
+Die Wahl der geeigneten Programmiersprache ist ebenfalls von großer Bedeutung. Ist das Zielsystem Windows, Linux, Unix oder MacOS? Einer Java-Lobby sollte man keinesfalls Python oder C++ als Grundlage aufdrängen.
 
-Die Auswahl der passenden Programmier-Sprachen spielt ebenso eine wichtige Rolle. Ist das Umfeld Windows / Linux / Unix / MacOS. Einer Java Lobby sollte man keinenfalls Python oder C++ als  Grundlage präsentieren.
-
-> PHP und MySQL sind schon seit langem out!
+> PHP und MySQL gelten bereits seit Langem als überholt.
 
 ## Refactoring
 
-Ein objektorientiertes Grund-Gerüst hilft beim Refactoring immens und spart dadurch grundlegende Kosten. Also wie immer: Gut in die Basis investiert ist das A und O gut geschriebener Software.
+Ein objektorientiertes Grundgerüst erleichtert das Refactoring erheblich und trägt zur Kostenersparnis bei. Wie so oft gilt: Eine solide Investition in die Basis ist das A und O für hochwertige Software.
 
 ## Testing
 
-Ebenso ist die Auswahl eines oder mehrerer geeigneter Test-Frameworks essentiell. Die korrekte Funktionsweise / Stabilität sollte vor der Verwendung eingehenst überprüft werden.
+Die Auswahl eines oder mehrerer geeigneter Testframeworks ist essenziell. Die korrekte Funktionsweise und Stabilität der Frameworks sollte vor ihrem Einsatz sorgfältig überprüft werden.
 
-> Das Selenium Browser-Test-Framework befand sich beispielsweise vor ca. 6 Jahren in einem nicht verwendbaren Zustand.
+> Das Selenium-Browser-Testframework befand sich beispielsweise vor etwa sechs Jahren in einem kaum praxistauglichen Zustand.
 
 ## Dokumentation
 
-Ebenso ist die Auswahl passender Dokumentations-Systeme maßgebend. Ich selbst bin mit der Zeit beim Sphinx Framework hängen geblieben, obwohl der Markt weitaus modernere Systeme anbietet.
+Die Wahl eines passenden Dokumentationssystems ist entscheidend. Ich persönlich habe mich nach langer Suche für das Sphinx-Framework entschieden, obwohl der Markt zahlreiche modernere Alternativen bietet.
 
-> Doxygen sucks! Mit ein wenig Aufwand ist es problemlos möglich Sphinx auch für ansprechende C++ Dokumentationen zu verwenden.
+> Doxygen ist weniger empfehlenswert im Hinblick auf Schönheit! Mit etwas Aufwand lässt sich Sphinx auch für ansprechende C++-Dokumentation nutzen.
 
 ## Backup
 
-Ein regelmäßiges Backup durchzuführen gehört ebenfalls zu einem erfolgreichen Projekt-Konzept. Hierfür empfehle ich leistungsstarke Rechner und Virtualisierungs-Technologien einzusetzen.
+Regelmäßige Backups sind Bestandteil eines erfolgreichen Projektkonzepts. Hierbei empfehle ich den Einsatz leistungsstarker Rechner und moderner Virtualisierungstechnologien.
 
-# Projekt Anforderungen
+# Projektanforderungen
 
-Was viele Programmierer vergessen: Nicht nur die technische Seite gehört zu einem runden Gesamt-Konzept. Defizite in der Organisation können ein Projekt schnell zum scheitern verurteilen.
+Viele Entwickler übersehen, dass nicht nur die technische Seite zu einem gelungenen Gesamtkonzept gehört. Schwächen in der Organisation können ein Projekt rasch zum Scheitern bringen.
 
-Die nachfolgenden Punkte unterstützen dich bei einer sauberen Organisation / Kommunikation rund ums Projekt.
+Die folgenden Punkte unterstützen eine strukturierte Organisation und Kommunikation im Projektumfeld.
 
 ## Rahmenbedingungen / Verträge
 
-Freelancer oder Festanstellung? Das ist hier die Frage. Als Freelancer kann man Projekt-bezogen viel Geld verdienen. Seid Euch aber bewusst: Ihr seid für Folge-Aufträge / Akquise und die Haftung bei erfolgten Schäden selbst verantwortlich.
+Freelancer oder Festanstellung – das ist hier die Frage. Als Freelancer kann man projektbezogen hohe Honorare erzielen; gleichzeitig trägt man Verantwortung für Akquise und Haftung.
 
-Eine Festanstellung bietet ein sicheres Gehalt. Verglichen zur Freelancer-Entlohnung aber eher ein schmaler Taler.
+Eine Festanstellung bietet hingegen ein sicheres Einkommen, fällt im Vergleich zur Freelancer-Vergütung jedoch meist deutlich geringer aus.
 
 ## Service / SOA
 
-Die folgenden Punkte sollte man beim Aufsetzen einer Service Orientierten Architektur beachten:
+Folgende Aspekte sind beim Aufbau einer serviceorientierten Architektur zu berücksichtigen:
 
 ```
-
 * Auf welche Web-Services ist das Projekt angewiesen?
-* Miete ich die Services oder stelle ich diese Inhouse zur Verfügung?
+* Werden die Services gemietet oder Inhouse bereitgestellt?
 * Welche Kosten entstehen?
-* Beinhalten die Anforderungen eine Service-Skalierung?
-* Welche Provider wähle ich für externe Services?
-* Welche Cloud-Infrastruktur-Management Tools sind zu verwenden?
-* Sind sonstige Service-Anforderungen gegeben?
-
-
+* Erfordern die Anforderungen eine Skalierung der Services?
+* Welche Provider werden für externe Services gewählt?
+* Welche Tools für das Cloud-Infrastruktur-Management kommen zum Einsatz?
+* Bestehen weitere spezielle Service-Anforderungen?
 ```
 
 ## Skalierung
 
-Ebenso spielt für größere Projekte der Faktor Skalierung eine wichtige Rolle. Die Aufgabe besteht nun darin, die passenden Cloud-Infrastrukturen zu wählen. AWS, Google Kubernetes oder ähnliche Provider.
+Für umfangreiche Projekte ist der Faktor Skalierung von zentraler Bedeutung. Es gilt, die passende Cloud-Infrastruktur auszuwählen: AWS, Google Kubernetes oder vergleichbare Plattformen.
 
 > Choose wisely.
 
 ## Budget
 
-Als ersten Punkt zählt es, das Budget abzuklären. Mit der Höhe des Budgets klärt sich, welche Regeln angewendet werden dürfen. Bei zu geringfügig angesetzten Projekt-Kosten rate ich ab, den Auftrag anzunehmen.
+Zu Beginn ist die Klärung des Budgets entscheidend. Die Höhe des Budgets bestimmt, welche Regeln und Maßnahmen angewendet werden können. Bei zu knapp bemessenen Projektkosten rate ich dringend vom Projektstart ab.
 
-Renomierte Firmen neigen eher nicht dazu Kosten einzusparen, wenn diese sauber dargelegt werden, inwieweit Sie dem Unternehmen langfristig zu Gute kommen. Ebenso werden diese Unternehmen "hohe" Service-Kosten wie AWS ohne mit der Winper zu zucken akzeptieren.
+Renommierte Unternehmen sparen selten an den Kosten, sofern nachvollziehbar dargelegt wird, inwiefern Investitionen dem Unternehmen langfristig zugutekommen. Auch „hohe“ Servicegebühren werden in solchen Fällen akzeptiert.
 
-> Das heißt aber nicht: Wir schmeißen das Geld zum Fenster raus. Die anfallenden Kosten müssen sauber in den Projektplan eingearbeitet werden, um auch aus Betriebswirtschaftlicher Sicht berücksichtig werden zu können.
+> Das bedeutet jedoch keineswegs, dass Geld verschwendet werden sollte. Sämtliche Ausgaben müssen sorgfältig in den Projektplan integriert werden, um auch betriebswirtschaftlich Berücksichtigung zu finden.
 
 ## Team / DevOps
 
-Ebenso steht die Team- Bildung und Kommunikation meiner Meinung nach ganz weit vorne. Ohne die Berücksichtigung des Aufbaus von Kommunikations-Grundlagen, regelmäßig abgehaltene Team-Absprachen wird ein Projekt unnötig in die Länge gezogen / steigen die Projektkosten immens.
+Teamaufbau und Kommunikation sind meiner Ansicht nach von herausragender Bedeutung. Ohne die Etablierung grundlegender Kommunikationsstrukturen und regelmäßiger Teamabsprachen ist eine effiziente Zusammenarbeit kaum möglich.
 
 ## Security / Audits
 
-4 Augen sehen mehr als 2. Externe Security-Audits sollten in regelmäßigen Intervallen statt-finden. Hierdurch erhöht man die Software-Qualität um ein Vielfaches.
-
+Vier Augen sehen mehr als zwei. Externe Security-Audits sollten in regelmäßigen Abständen durchgeführt werden. Dadurch steigt die Softwarequalität erheblich.
